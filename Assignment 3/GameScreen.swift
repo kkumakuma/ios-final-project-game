@@ -23,7 +23,7 @@ class GameScreen: UIViewController {
     @IBOutlet weak var op2Text: UIButton!
     @IBOutlet weak var op3Text: UIButton!
     
-    
+    //button for 1st player choice
     @IBAction func op1Button(_ sender: UIButton) {
         if i < mainStoryArray.count - 1 {
             if !timeGateArrayA.contains(i) {
@@ -39,6 +39,7 @@ class GameScreen: UIViewController {
         }
     }
     
+    //button for 2nd player choice
     @IBAction func op2Button(_ sender: UIButton) {
         if i < mainStoryArray.count - 1{
             if !timeGateArrayB.contains(i) && !alterStoryArray.contains(i){
@@ -54,7 +55,7 @@ class GameScreen: UIViewController {
         }
     }
     
-    
+    //button used for time gated breakout events
     @IBAction func op3Button(_ sender: Any) {
         op1Text.setTitle("", for: [])
         op1Text.isHidden = false
