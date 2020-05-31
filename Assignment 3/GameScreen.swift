@@ -11,82 +11,80 @@ import UIKit
 class GameScreen: UIViewController {
     
     var mainStoryArray = [""]
-    var opAArray = [""]
-    var opBArray = [""]
-    var timeGateArrayA = [4, 7, 12]
-    var timeGateArrayB = [3, 8, 15]
-    var alterStoryArray = [5, 14, 21]
-    var i = 0
+    var option1StoryArray = [""]
+    var option2StoryArray = [""]
+    var timeGateEventArray1 = [4, 8, 9] //can be any array
+    var timeGateEventArray2 = [3, 6, 12] //can be any array
+    var alterStoryArray = [5, 14, 21] //can be any array
+    var arrayNo = 0
     
-    @IBOutlet weak var gameTextLabel: UILabel!
-    @IBOutlet weak var op1Text: UIButton!
-    @IBOutlet weak var op2Text: UIButton!
-    @IBOutlet weak var op3Text: UIButton!
+    @IBOutlet weak var gameStoryText: UILabel!
+    @IBOutlet weak var option1Text: UIButton!
+    @IBOutlet weak var option2Text: UIButton!
+    @IBOutlet weak var breakoutOptionText: UIButton!
     
-    //button for 1st player choice
-    @IBAction func op1Button(_ sender: UIButton) {
-        if i < mainStoryArray.count - 1 {
-            if !timeGateArrayA.contains(i) {
-                gameTextLabel.text = mainStoryArray[i]
-                op1Text.setTitle(opAArray[i], for: [])
-                op2Text.setTitle(opBArray[i], for: [])
-                i += 1
-            } else if timeGateArrayA.contains(i) {
-                    timeBreakoutA()
-            } else if alterStoryArray.contains(i) {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initGame()
+    }
+    
+    
+    //button actions for 1st player choice
+    @IBAction func option1Button(_ sender: UIButton) {
+        if arrayNo < mainStoryArray.count - 1 {
+            if !timeGateEventArray1.contains(arrayNo) && !alterStoryArray.contains(arrayNo) {
+                advanceStory()
+            } else if timeGateEventArray1.contains(arrayNo) {
+                timeBreakoutA()
+            } else if alterStoryArray.contains(arrayNo) {
                 print("wahaha")
             }
         }
     }
     
-    //button for 2nd player choice
-    @IBAction func op2Button(_ sender: UIButton) {
-        if i < mainStoryArray.count - 1{
-            if !timeGateArrayB.contains(i) && !alterStoryArray.contains(i){
-                gameTextLabel.text = mainStoryArray[i]
-                op1Text.setTitle(opAArray[i], for: [])
-                op2Text.setTitle(opBArray[i], for: [])
-                i += 1
-            } else if timeGateArrayB.contains(i) {
+    
+    //button actions for 2nd player choice
+    @IBAction func option2Button(_ sender: UIButton) {
+        if arrayNo < mainStoryArray.count - 1{
+            if !timeGateEventArray2.contains(arrayNo) && !alterStoryArray.contains(arrayNo) {
+                advanceStory()
+            } else if timeGateEventArray2.contains(arrayNo) {
                 timeBreakoutB()
-            } else if alterStoryArray.contains(i) {
+            } else if alterStoryArray.contains(arrayNo) {
                 print("ceebs")
             }
         }
     }
     
-    //button used for time gated breakout events
-    @IBAction func op3Button(_ sender: Any) {
-        op1Text.setTitle("", for: [])
-        op1Text.isHidden = false
-        op2Text.setTitle("", for: [])
-        op2Text.isHidden = false
-        op3Text.isHidden = true
-        if gameTextLabel.text == "Can't you be a little more patient?" {
+    
+    //button actions for time gated breakout events
+    @IBAction func breakoutOptionButton(_ sender: Any) {
+        option1Text.setTitle("", for: [])
+        option1Text.isHidden = false
+        option2Text.setTitle("", for: [])
+        option2Text.isHidden = false
+        breakoutOptionText.isHidden = true
+        if gameStoryText.text == "Can't you be a little more patient?" {
             timeBreakoutA2()
-        } else if gameTextLabel.text == "Is it time to get up already?" {
+        } else if gameStoryText.text == "Is it time to get up already?" {
             timeBreakoutB2()
         }
     }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        initGame()
-    }
-    
     //opening setup
     func initGame() {
         mainStoryArray = loadTextToArray(fileName: "mainStory")!
-        opAArray = loadTextToArray(fileName: "optionsSideA")!
-        opBArray = loadTextToArray(fileName: "optionsSideB")!
+        option1StoryArray = loadTextToArray(fileName: "optionsSideA")!
+        option2StoryArray = loadTextToArray(fileName: "optionsSideB")!
         
-        gameTextLabel.text = "Can you see me?"
-        op1Text.setTitle("Yes", for: [])
-        op2Text.setTitle("No", for: [])
-        op3Text.isHidden = true
+        gameStoryText.text = "Can you see me?"
+        option1Text.setTitle("Yes", for: [])
+        option2Text.setTitle("No", for: [])
+        breakoutOptionText.isHidden = true
     }
+    
     
     //loads story text into arrays
     func loadTextToArray(fileName: String) -> [String]? {
@@ -103,45 +101,54 @@ class GameScreen: UIViewController {
     }
     
     
+    //advances story if no breakout points are hit
+    func advanceStory() {
+        gameStoryText.text = mainStoryArray[arrayNo]
+        option1Text.setTitle(option1StoryArray[arrayNo], for: [])
+        option2Text.setTitle(option2StoryArray[arrayNo], for: [])
+        arrayNo += 1
+    }
+    
+    
     //breakout interactions for time gated sequences on option A
     func timeBreakoutA() {
-        op1Text.isHidden = true
-        op2Text.isHidden = true
-        gameTextLabel.text = "I'm looking for something. Brb."
+        option1Text.isHidden = true
+        option2Text.isHidden = true
+        gameStoryText.text = "I'm looking for something. Brb."
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            self.gameTextLabel.text = "Can't you be a little more patient?"
+            self.gameStoryText.text = "Can't you be a little more patient?"
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.op3Text.isHidden = false
+                self.breakoutOptionText.isHidden = false
             }
         }
-        op3Text.setTitle("Did you find it?", for: [])
+        breakoutOptionText.setTitle("Did you find it?", for: [])
     }
     func timeBreakoutA2() {
-        gameTextLabel.text = "Yeah, I got it"
-        timeGateArrayB.remove(at: 0)
+        gameStoryText.text = "Yeah, I got it"
+        timeGateEventArray1.remove(at: 0)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.op2Text.sendActions(for: .touchUpInside)
+            self.option2Text.sendActions(for: .touchUpInside)
         }
     }
     
     //breakout interactions for time gated sequences on option B
     func timeBreakoutB() {
-        op1Text.isHidden = true
-        op2Text.isHidden = true
-        gameTextLabel.text = "Gonna take a nap."
+        option1Text.isHidden = true
+        option2Text.isHidden = true
+        gameStoryText.text = "Gonna take a nap."
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            self.gameTextLabel.text = "Is it time to get up already?"
+            self.gameStoryText.text = "Is it time to get up already?"
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.op3Text.isHidden = false
+                self.breakoutOptionText.isHidden = false
             }
         }
-        op3Text.setTitle("Come on, wake up.", for: [])
+        breakoutOptionText.setTitle("Come on, wake up.", for: [])
     }
     func timeBreakoutB2() {
-        gameTextLabel.text = "Alright I'm up."
-        timeGateArrayB.remove(at: 0)
+        gameStoryText.text = "Alright I'm up."
+        timeGateEventArray2.remove(at: 0)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.op2Text.sendActions(for: .touchUpInside)
+            self.option2Text.sendActions(for: .touchUpInside)
         }
     }
 }

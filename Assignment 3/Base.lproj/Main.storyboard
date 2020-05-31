@@ -46,7 +46,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Choice 1"/>
                                 <connections>
-                                    <action selector="op1Button:" destination="ZIl-ni-bND" eventType="touchUpInside" id="47c-LM-GsD"/>
+                                    <action selector="option1Button:" destination="ZIl-ni-bND" eventType="touchUpInside" id="0gq-Em-UYh"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Story text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddj-RQ-NKR">
@@ -61,14 +61,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Choice 2"/>
                                 <connections>
-                                    <action selector="op2Button:" destination="ZIl-ni-bND" eventType="touchUpInside" id="Nrh-Xa-HBC"/>
+                                    <action selector="option2Button:" destination="ZIl-ni-bND" eventType="touchUpInside" id="oBH-HW-fEc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kY8-3D-tnG">
                                 <rect key="frame" x="105" y="477" width="218" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="op3Button:" destination="ZIl-ni-bND" eventType="touchUpInside" id="EAr-aF-C1h"/>
+                                    <action selector="breakoutOptionButton:" destination="ZIl-ni-bND" eventType="touchUpInside" id="tpQ-W8-BaS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -77,10 +77,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="iou-gL-oAw"/>
                     <connections>
-                        <outlet property="gameTextLabel" destination="ddj-RQ-NKR" id="3v2-oz-zVC"/>
-                        <outlet property="op1Text" destination="hFY-9K-9oV" id="HfN-aC-ZvX"/>
-                        <outlet property="op2Text" destination="E5Y-tf-kVh" id="sny-BO-0rq"/>
-                        <outlet property="op3Text" destination="kY8-3D-tnG" id="RY7-W3-j85"/>
+                        <outlet property="breakoutOptionText" destination="kY8-3D-tnG" id="98M-Mi-oBT"/>
+                        <outlet property="gameStoryText" destination="ddj-RQ-NKR" id="rOi-eh-vg7"/>
+                        <outlet property="option1Text" destination="hFY-9K-9oV" id="faS-pi-54S"/>
+                        <outlet property="option2Text" destination="E5Y-tf-kVh" id="tah-0F-zDi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfj-lF-hKF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
