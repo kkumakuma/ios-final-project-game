@@ -112,6 +112,8 @@ class GameScreen: UIViewController {
     
     //loads saved game
     func loadSave() {
+        timeGateEventArray1 = defaults.array(forKey: "timeGateArray1") as! [Int]
+        timeGateEventArray2 = defaults.array(forKey: "timeGateArray2") as! [Int]
         arrayNo = storySavePoint
         if timeGateEventArray1.contains(arrayNo) {
             option1Text.isHidden = true
@@ -184,6 +186,7 @@ class GameScreen: UIViewController {
     func timeBreakoutA2() {
         gameStoryText.text = "Yeah, I got it"
         timeGateEventArray1.remove(at: 0)
+        saveGame()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.option2Text.sendActions(for: .touchUpInside)
         }
@@ -205,6 +208,7 @@ class GameScreen: UIViewController {
     func timeBreakoutB2() {
         gameStoryText.text = "Alright I'm up."
         timeGateEventArray2.remove(at: 0)
+        saveGame()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.option2Text.sendActions(for: .touchUpInside)
         }
@@ -215,6 +219,8 @@ class GameScreen: UIViewController {
     func saveGame() {
         defaults.set(arrayNo, forKey: "savedStoryLineNo")
         defaults.set(gameStoryText.text, forKey: "currentLine")
+        defaults.set(timeGateEventArray1, forKey: "timeGateArray1")
+        defaults.set(timeGateEventArray2, forKey: "timeGateArray2")
         storySavePoint = defaults.integer(forKey: "savedStoryLineNo")
         currentStoryLine = defaults.value(forKey: "currentLine") as! String
         print(storySavePoint) //testing line

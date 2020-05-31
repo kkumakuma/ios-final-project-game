@@ -26,8 +26,14 @@ class TitleScreen: UIViewController {
     
     //clears saves
     @IBAction func clearSaves(_ sender: Any) {
-        defaults.removeObject(forKey: "savedStoryLineNo")
-        defaults.removeObject(forKey: "currentLine")
+        let clearSavedGame = UIAlertController(title: "Are you sure you want to clear your saves?", message: "", preferredStyle: .alert)
+        clearSavedGame.addAction(UIAlertAction(title: "Yes", style: .default, handler: {action in
+            self.defaults.removeObject(forKey: "savedStoryLineNo")
+            self.defaults.removeObject(forKey: "currentLine")
+        }))
+        clearSavedGame.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        self.present(clearSavedGame, animated: true)
+        
     }
     
     override func viewDidLoad() {
