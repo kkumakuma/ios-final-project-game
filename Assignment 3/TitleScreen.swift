@@ -9,24 +9,29 @@
 import UIKit
 
 class TitleScreen: UIViewController {
-
     
+    let defaults = UserDefaults.standard
+
+    //loads any saved game
+    @IBAction func loadGameButton(_ sender: Any) {
+        print(defaults.integer(forKey: "savedStoryLineNo"))
+        if defaults.integer(forKey: "savedStoryLineNo") != 0 {
+            self.performSegue(withIdentifier: "loadGameSegue", sender: self)
+        } else {
+            let noSavedGame = UIAlertController(title: "Oops, there's no saved game", message: "", preferredStyle: .alert)
+            noSavedGame.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self.present(noSavedGame, animated: true)
+        }
+    }
+    
+    //clears saves
+    @IBAction func clearSaves(_ sender: Any) {
+        defaults.removeObject(forKey: "savedStoryLineNo")
+        defaults.removeObject(forKey: "currentLine")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

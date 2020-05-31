@@ -23,11 +23,30 @@
                                     <segue destination="ZIl-ni-bND" kind="show" id="QeZ-x3-3mJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgp-QU-tOt">
+                                <rect key="frame" x="168" y="513" width="78" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Load Game"/>
+                                <connections>
+                                    <action selector="loadGameButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HoG-Bh-nyI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njO-WB-s0c">
+                                <rect key="frame" x="167" y="615" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Clear Saves"/>
+                                <connections>
+                                    <action selector="clearSaves:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qmW-V7-PLe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="hWx-R4-Bf0"/>
+                    <connections>
+                        <segue destination="ZIl-ni-bND" kind="show" identifier="loadGameSegue" id="c7V-j6-5vz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -88,4 +107,7 @@
             <point key="canvasLocation" x="1318.840579710145" y="101.78571428571428"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="c7V-j6-5vz"/>
+    </inferredMetricsTieBreakers>
 </document>
