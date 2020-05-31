@@ -35,6 +35,8 @@ class TitleScreen: UIViewController {
         clearSavedGame.addAction(UIAlertAction(title: "Yes", style: .default, handler: {action in
             self.defaults.removeObject(forKey: "savedStoryLineNo")
             self.defaults.removeObject(forKey: "currentLine")
+            self.defaults.removeObject(forKey: "playerName")
+            self.defaults.removeObject(forKey: "playerWeapon")
             self.viewDidLoad()
         }))
         clearSavedGame.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))

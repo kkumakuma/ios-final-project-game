@@ -27,7 +27,7 @@ class GameScreen: UIViewController {
     var breakoutMessageB = "Is it time to get up already?"
     
     //player settings
-    var playerName = "" //will be read from userdefaults later
+    var playerName = "Unknown"
     var playerWeapon = "???"
     var goodEndCounter = 0
     var badEndCounter = 0
@@ -35,6 +35,7 @@ class GameScreen: UIViewController {
     //game save
     var storySavePoint = 0
     var currentStoryLine = ""
+    var isSaveCalled = false
     
     @IBOutlet weak var gameStoryText: UILabel!
     @IBOutlet weak var option1Text: UIButton!
@@ -44,6 +45,9 @@ class GameScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if defaults.value(forKey: "playerName") == nil {
+            loadDefaultData()
+        }
         playerName = defaults.value(forKey: "playerName") as! String
         playerWeapon = defaults.value(forKey: "playerWeapon") as! String
         loadTextFiles()
@@ -123,6 +127,15 @@ class GameScreen: UIViewController {
         print(mainStoryArray)// testing line to check if output is correct
     }
     
+    //loads default data if userdefaults does not exist
+    func loadDefaultData() {
+        if defaults.string(forKey: "playerName") == nil {
+            defaults.set("Unknown", forKey: "playerName")
+        }
+        if defaults.string(forKey: "playerWeapon") == nil {
+            defaults.set("Sword", forKey: "playerWeapon")
+        }
+    }
     
     //saves game
     func saveGame() {
@@ -147,6 +160,7 @@ class GameScreen: UIViewController {
         goodEndCounter = defaults.integer(forKey: "goodEndCounter")
         badEndCounter = defaults.integer(forKey: "badEndCounter")
         storyArrayNo = storySavePoint
+        breakoutOptionText.isHidden = true
         if timeGateEventArrayA.contains(storyArrayNo) {
             option1Text.isHidden = true
             option2Text.isHidden = true
@@ -167,7 +181,9 @@ class GameScreen: UIViewController {
             gameStoryText.text = mainStoryArray[storyArrayNo]
             option1Text.setTitle(optionAStoryArray[storyArrayNo], for: [])
             option2Text.setTitle(optionBStoryArray[storyArrayNo], for: [])
+            self.option2Text.sendActions(for: .touchUpInside)
         }
+        isSaveCalled = true
     }
     
     //loads player variables into story array
