@@ -12,15 +12,15 @@ class TitleScreen: UIViewController {
     
     let defaults = UserDefaults.standard
 
+    @IBOutlet weak var startGameButtonText: UIButton!
+    
     //loads any saved game
-    @IBAction func loadGameButton(_ sender: Any) {
+    @IBAction func startGameButton(_ sender: Any) {
         print(defaults.integer(forKey: "savedStoryLineNo"))
         if defaults.integer(forKey: "savedStoryLineNo") != 0 {
             self.performSegue(withIdentifier: "loadGameSegue", sender: self)
         } else {
-            let noSavedGame = UIAlertController(title: "Oops, there's no saved game", message: "", preferredStyle: .alert)
-            noSavedGame.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-            self.present(noSavedGame, animated: true)
+            self.performSegue(withIdentifier: "loadGameSegue", sender: self)
         }
     }
     
@@ -30,6 +30,7 @@ class TitleScreen: UIViewController {
         clearSavedGame.addAction(UIAlertAction(title: "Yes", style: .default, handler: {action in
             self.defaults.removeObject(forKey: "savedStoryLineNo")
             self.defaults.removeObject(forKey: "currentLine")
+            self.viewDidLoad()
         }))
         clearSavedGame.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
         self.present(clearSavedGame, animated: true)
@@ -38,6 +39,11 @@ class TitleScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if defaults.integer(forKey: "savedStoryLineNo") != 0 {
+            startGameButtonText.setTitle("Load Game", for: [])
+        } else {
+            startGameButtonText.setTitle("Start Game", for: [])
+        }
     }
 
 }

@@ -15,24 +15,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NhF-Sv-ni7">
-                                <rect key="frame" x="168" y="433" width="78" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Start Game"/>
-                                <connections>
-                                    <segue destination="ZIl-ni-bND" kind="show" id="QeZ-x3-3mJ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgp-QU-tOt">
-                                <rect key="frame" x="168" y="513" width="78" height="30"/>
+                                <rect key="frame" x="167" y="433" width="78" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Load Game"/>
                                 <connections>
-                                    <action selector="loadGameButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HoG-Bh-nyI"/>
+                                    <action selector="startGameButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bvU-eD-Wlq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njO-WB-s0c">
-                                <rect key="frame" x="167" y="615" width="81" height="30"/>
+                                <rect key="frame" x="167" y="520" width="81" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Clear Saves"/>
                                 <connections>
@@ -45,6 +37,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="hWx-R4-Bf0"/>
                     <connections>
+                        <outlet property="startGameButtonText" destination="hgp-QU-tOt" id="16D-Rl-BCx"/>
                         <segue destination="ZIl-ni-bND" kind="show" identifier="loadGameSegue" id="c7V-j6-5vz"/>
                     </connections>
                 </viewController>
@@ -107,7 +100,4 @@
             <point key="canvasLocation" x="1318.840579710145" y="101.78571428571428"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="c7V-j6-5vz"/>
-    </inferredMetricsTieBreakers>
 </document>
