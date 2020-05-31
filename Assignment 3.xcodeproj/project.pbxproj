@@ -19,8 +19,8 @@
 		E4FD9FE1248287BD00CC5BFF /* mainStory.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4FD9FE0248287BD00CC5BFF /* mainStory.txt */; };
 		E4FD9FE924828DEE00CC5BFF /* optionsSideA.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4FD9FE824828DEE00CC5BFF /* optionsSideA.txt */; };
 		E4FD9FEB24828E1D00CC5BFF /* optionsSideB.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4FD9FEA24828E1D00CC5BFF /* optionsSideB.txt */; };
-		E4FD9FEF248399E300CC5BFF /* alternateStoryLinesB in Resources */ = {isa = PBXBuildFile; fileRef = E4FD9FEE248399E300CC5BFF /* alternateStoryLinesB */; };
-		E4FD9FF1248399FB00CC5BFF /* alternateStoryLinesA in Resources */ = {isa = PBXBuildFile; fileRef = E4FD9FF0248399FB00CC5BFF /* alternateStoryLinesA */; };
+		E4FD9FEF248399E300CC5BFF /* alternateStoryLinesB.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4FD9FEE248399E300CC5BFF /* alternateStoryLinesB.txt */; };
+		E4FD9FF1248399FB00CC5BFF /* alternateStoryLinesA.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4FD9FF0248399FB00CC5BFF /* alternateStoryLinesA.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,8 +59,8 @@
 		E4FD9FE0248287BD00CC5BFF /* mainStory.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = mainStory.txt; sourceTree = "<group>"; };
 		E4FD9FE824828DEE00CC5BFF /* optionsSideA.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = optionsSideA.txt; sourceTree = "<group>"; };
 		E4FD9FEA24828E1D00CC5BFF /* optionsSideB.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = optionsSideB.txt; sourceTree = "<group>"; };
-		E4FD9FEE248399E300CC5BFF /* alternateStoryLinesB */ = {isa = PBXFileReference; lastKnownFileType = text; path = alternateStoryLinesB; sourceTree = "<group>"; };
-		E4FD9FF0248399FB00CC5BFF /* alternateStoryLinesA */ = {isa = PBXFileReference; lastKnownFileType = text; path = alternateStoryLinesA; sourceTree = "<group>"; };
+		E4FD9FEE248399E300CC5BFF /* alternateStoryLinesB.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = alternateStoryLinesB.txt; sourceTree = "<group>"; };
+		E4FD9FF0248399FB00CC5BFF /* alternateStoryLinesA.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = alternateStoryLinesA.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,8 +122,8 @@
 				E4FD9FE0248287BD00CC5BFF /* mainStory.txt */,
 				E4FD9FE824828DEE00CC5BFF /* optionsSideA.txt */,
 				E4FD9FEA24828E1D00CC5BFF /* optionsSideB.txt */,
-				E4FD9FF0248399FB00CC5BFF /* alternateStoryLinesA */,
-				E4FD9FEE248399E300CC5BFF /* alternateStoryLinesB */,
+				E4FD9FF0248399FB00CC5BFF /* alternateStoryLinesA.txt */,
+				E4FD9FEE248399E300CC5BFF /* alternateStoryLinesB.txt */,
 			);
 			path = "Assignment 3";
 			sourceTree = "<group>";
@@ -251,9 +251,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4FD9FE1248287BD00CC5BFF /* mainStory.txt in Resources */,
-				E4FD9FF1248399FB00CC5BFF /* alternateStoryLinesA in Resources */,
+				E4FD9FF1248399FB00CC5BFF /* alternateStoryLinesA.txt in Resources */,
 				E4FD9FE924828DEE00CC5BFF /* optionsSideA.txt in Resources */,
-				E4FD9FEF248399E300CC5BFF /* alternateStoryLinesB in Resources */,
+				E4FD9FEF248399E300CC5BFF /* alternateStoryLinesB.txt in Resources */,
 				E4FD9FB824825D3D00CC5BFF /* LaunchScreen.storyboard in Resources */,
 				E4FD9FEB24828E1D00CC5BFF /* optionsSideB.txt in Resources */,
 				E4FD9FB524825D3D00CC5BFF /* Assets.xcassets in Resources */,
