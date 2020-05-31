@@ -31,7 +31,7 @@ class TitleScreen: UIViewController {
 
     //clears saves
     @IBAction func clearSaves(_ sender: UIButton) {
-        let clearSavedGame = UIAlertController(title: "Are you sure you want to forfeit your progress?", message: "", preferredStyle: .alert)
+        let clearSavedGame = UIAlertController(title: "Are you sure you want to forfeit your progress?", message: "This will clear everything, including any settings.", preferredStyle: .alert)
         clearSavedGame.addAction(UIAlertAction(title: "Yes", style: .default, handler: {action in
             self.defaults.removeObject(forKey: "savedStoryLineNo")
             self.defaults.removeObject(forKey: "currentLine")
