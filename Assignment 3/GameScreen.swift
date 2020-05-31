@@ -29,6 +29,8 @@ class GameScreen: UIViewController {
     //player settings
     var playerName = "Doctor Doom" //will be read from userdefaults later
     var playerWeapon = "???"
+    var goodEndCounter = 0
+    var badEndCounter = 0
     
     //game save
     var storySavePoint = 0
@@ -127,6 +129,8 @@ class GameScreen: UIViewController {
         defaults.set(timeGateEventArrayA, forKey: "timeGateArray1")
         defaults.set(timeGateEventArrayB, forKey: "timeGateArray2")
         defaults.set(altStoryEventArray, forKey: "altStoryLineArray")
+        defaults.set(goodEndCounter, forKey: "goodEndCounter")
+        defaults.set(badEndCounter, forKey: "badEndCounter")
         storySavePoint = defaults.integer(forKey: "savedStoryLineNo")
         currentStoryLine = defaults.value(forKey: "currentLine") as! String
         print(storySavePoint) //testing line
@@ -138,6 +142,8 @@ class GameScreen: UIViewController {
         timeGateEventArrayA = defaults.array(forKey: "timeGateArray1") as! [Int]
         timeGateEventArrayB = defaults.array(forKey: "timeGateArray2") as! [Int]
         altStoryEventArray = defaults.array(forKey: "altStoryLineArray") as! [Int]
+        goodEndCounter = defaults.integer(forKey: "goodEndCounter")
+        badEndCounter = defaults.integer(forKey: "badEndCounter")
         storyArrayNo = storySavePoint
         if timeGateEventArrayA.contains(storyArrayNo) {
             option1Text.isHidden = true
@@ -244,14 +250,16 @@ class GameScreen: UIViewController {
         option1Text.setTitle("", for: [])
         option2Text.setTitle("", for: [])
         altStoryEventArray.remove(at: 0)
-        saveGame()
         switch buttonID {
         case 1:
             gameStoryText.text = altStoryArrayA[0]
+            goodEndCounter += 1
         case 2:
             gameStoryText.text = altStoryArrayB[0]
+            badEndCounter += 1
         default: break
         }
+        saveGame()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.option2Text.sendActions(for: .touchUpInside)
         }
