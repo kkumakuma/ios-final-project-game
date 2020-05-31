@@ -126,6 +126,7 @@ class GameScreen: UIViewController {
         defaults.set(gameStoryText.text, forKey: "currentLine")
         defaults.set(timeGateEventArrayA, forKey: "timeGateArray1")
         defaults.set(timeGateEventArrayB, forKey: "timeGateArray2")
+        defaults.set(altStoryEventArray, forKey: "altStoryLineArray")
         storySavePoint = defaults.integer(forKey: "savedStoryLineNo")
         currentStoryLine = defaults.value(forKey: "currentLine") as! String
         print(storySavePoint) //testing line
@@ -136,6 +137,7 @@ class GameScreen: UIViewController {
     func loadSave() {
         timeGateEventArrayA = defaults.array(forKey: "timeGateArray1") as! [Int]
         timeGateEventArrayB = defaults.array(forKey: "timeGateArray2") as! [Int]
+        altStoryEventArray = defaults.array(forKey: "altStoryLineArray") as! [Int]
         storyArrayNo = storySavePoint
         if timeGateEventArrayA.contains(storyArrayNo) {
             option1Text.isHidden = true
@@ -242,6 +244,7 @@ class GameScreen: UIViewController {
         option1Text.setTitle("", for: [])
         option2Text.setTitle("", for: [])
         altStoryEventArray.remove(at: 0)
+        saveGame()
         switch buttonID {
         case 1:
             gameStoryText.text = altStoryArrayA[0]
