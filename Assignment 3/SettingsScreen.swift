@@ -43,12 +43,15 @@ class SettingsScreen: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         return weaponPickerData.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return weaponPickerData[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        return NSAttributedString(string: weaponPickerData[row], attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView
+    {
+        let pickerLabel = UILabel()
+        pickerLabel.textColor = UIColor.white
+        pickerLabel.text = weaponPickerData[row]
+        // pickerLabel.font = UIFont(name: pickerLabel.font.fontName, size: 15)
+        pickerLabel.font = UIFont(name: "Courier New", size: 22) // In this use your custom font
+        pickerLabel.textAlignment = NSTextAlignment.center
+        return pickerLabel
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
