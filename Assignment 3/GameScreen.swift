@@ -35,7 +35,6 @@ class GameScreen: UIViewController {
     //game save
     var storySavePoint = 0
     var currentStoryLine = ""
-    var isSaveCalled = false
     
     @IBOutlet weak var gameStoryText: UILabel!
     @IBOutlet weak var option1Text: UIButton!
@@ -183,7 +182,6 @@ class GameScreen: UIViewController {
             option2Text.setTitle(optionBStoryArray[storyArrayNo], for: [])
             self.option2Text.sendActions(for: .touchUpInside)
         }
-        isSaveCalled = true
     }
     
     //loads player variables into story array
@@ -223,7 +221,12 @@ class GameScreen: UIViewController {
         option1Text.isHidden = true
         option2Text.isHidden = true
         gameStoryText.text = "I'm looking for something. Brb."
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.gameStoryText.textColor = #colorLiteral(red: 0.2115378903, green: 0.5939850973, blue: 0.3091130621, alpha: 1)
+            self.gameStoryText.text = "[\(self.playerName) is busy]"
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.gameStoryText.textColor = UIColor.systemTeal
             self.gameStoryText.text = self.breakoutMessageA
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.breakoutOptionText.isHidden = false
@@ -245,7 +248,12 @@ class GameScreen: UIViewController {
         option1Text.isHidden = true
         option2Text.isHidden = true
         gameStoryText.text = "Gonna take a nap."
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.gameStoryText.textColor = #colorLiteral(red: 0.2115378903, green: 0.5939850973, blue: 0.3091130621, alpha: 1)
+            self.gameStoryText.text = "[\(self.playerName) is asleep]"
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.gameStoryText.textColor = UIColor.systemTeal
             self.gameStoryText.text = self.breakoutMessageB
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.breakoutOptionText.isHidden = false
