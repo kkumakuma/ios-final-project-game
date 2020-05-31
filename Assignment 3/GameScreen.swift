@@ -13,10 +13,14 @@ class GameScreen: UIViewController {
     var mainStoryArray = [""]
     var option1StoryArray = [""]
     var option2StoryArray = [""]
+    var textFileContent = ""
     var timeGateEventArray1 = [4, 8, 9] //can be any array
     var timeGateEventArray2 = [3, 6, 12] //can be any array
     var alterStoryArray = [5, 14, 21] //can be any array
     var arrayNo = 0
+    
+    var playerName = "Doctor Doom" //will be read from userdefaults later
+    var playerRace = "???" //will be read from userdefaults later
     
     @IBOutlet weak var gameStoryText: UILabel!
     @IBOutlet weak var option1Text: UIButton!
@@ -83,6 +87,8 @@ class GameScreen: UIViewController {
         option1Text.setTitle("Yes", for: [])
         option2Text.setTitle("No", for: [])
         breakoutOptionText.isHidden = true
+        
+        print(mainStoryArray)
     }
     
     
@@ -92,9 +98,10 @@ class GameScreen: UIViewController {
             return nil
         }
         do {
-            let content = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
-             print(content)
-            return content.components(separatedBy: "\n")
+            textFileContent = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
+            loadPlayerSettings()
+             print(textFileContent) //testing line to ensure contents are being parsed correctly
+            return textFileContent.components(separatedBy: "\n")
         } catch {
             return nil
         }
@@ -150,5 +157,12 @@ class GameScreen: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.option2Text.sendActions(for: .touchUpInside)
         }
+    }
+    
+    
+    //loads player variables into file
+    func loadPlayerSettings() {
+        textFileContent = textFileContent.replacingOccurrences(of: "playerName", with: "\(playerName)")
+        textFileContent = textFileContent.replacingOccurrences(of: "playerRace", with: "\(playerRace)")
     }
 }
