@@ -27,7 +27,6 @@ class StartScreen: UIViewController {
             self.performSegue(withIdentifier: "toTitleScreen", sender: self)
         } else {
             timeRemaining -= 1
-            print(timeRemaining)
         }
     }
 

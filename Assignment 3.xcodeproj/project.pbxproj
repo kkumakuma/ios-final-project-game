@@ -22,6 +22,7 @@
 		E4FD9FEF248399E300CC5BFF /* alternateStoryLinesB.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4FD9FEE248399E300CC5BFF /* alternateStoryLinesB.txt */; };
 		E4FD9FF1248399FB00CC5BFF /* alternateStoryLinesA.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4FD9FF0248399FB00CC5BFF /* alternateStoryLinesA.txt */; };
 		E4FD9FF52483B01700CC5BFF /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD9FF42483B01700CC5BFF /* StartScreen.swift */; };
+		E4FD9FF72483CFA100CC5BFF /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD9FF62483CFA100CC5BFF /* SettingsScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		E4FD9FEE248399E300CC5BFF /* alternateStoryLinesB.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = alternateStoryLinesB.txt; sourceTree = "<group>"; };
 		E4FD9FF0248399FB00CC5BFF /* alternateStoryLinesA.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = alternateStoryLinesA.txt; sourceTree = "<group>"; };
 		E4FD9FF42483B01700CC5BFF /* StartScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; };
+		E4FD9FF62483CFA100CC5BFF /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				E4FD9FB924825D3D00CC5BFF /* Info.plist */,
 				E4FD9FF42483B01700CC5BFF /* StartScreen.swift */,
 				E4FD9FDB2482600E00CC5BFF /* TitleScreen.swift */,
+				E4FD9FF62483CFA100CC5BFF /* SettingsScreen.swift */,
 				E4FD9FDD2482604E00CC5BFF /* GameScreen.swift */,
 				E4FD9FE0248287BD00CC5BFF /* mainStory.txt */,
 				E4FD9FE824828DEE00CC5BFF /* optionsSideA.txt */,
@@ -289,6 +292,7 @@
 				E4FD9FAC24825D3B00CC5BFF /* AppDelegate.swift in Sources */,
 				E4FD9FF52483B01700CC5BFF /* StartScreen.swift in Sources */,
 				E4FD9FDC2482600E00CC5BFF /* TitleScreen.swift in Sources */,
+				E4FD9FF72483CFA100CC5BFF /* SettingsScreen.swift in Sources */,
 				E4FD9FAE24825D3B00CC5BFF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

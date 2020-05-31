@@ -27,7 +27,7 @@ class GameScreen: UIViewController {
     var breakoutMessageB = "Is it time to get up already?"
     
     //player settings
-    var playerName = "Doctor Doom" //will be read from userdefaults later
+    var playerName = "" //will be read from userdefaults later
     var playerWeapon = "???"
     var goodEndCounter = 0
     var badEndCounter = 0
@@ -44,6 +44,8 @@ class GameScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        playerName = defaults.value(forKey: "playerName") as! String
+        playerWeapon = defaults.value(forKey: "playerWeapon") as! String
         loadTextFiles()
         storySavePoint = defaults.integer(forKey: "savedStoryLineNo")
         if defaults.integer(forKey: "savedStoryLineNo") != 0 {
