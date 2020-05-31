@@ -64,6 +64,11 @@ class SettingsScreen: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         weaponPickerData = ["Sword", "Shield"]
         
+        loadSettings()
+    }
+    
+    
+    func loadSettings() {
         if defaults.integer(forKey: "savedStoryLineNo") != 0 {
             weaponPickerScroll.isUserInteractionEnabled = false
             clearSettingsText.isEnabled = false
