@@ -113,9 +113,9 @@ class GameScreen: UIViewController {
     
     //initialises game
     func initGame() {
-        gameStoryText.text = "Can you see me?"
-        option1Text.setTitle("Yes", for: [])
-        option2Text.setTitle("No", for: [])
+        gameStoryText.text = "First line of story."
+        option1Text.setTitle("First option", for: [])
+        option2Text.setTitle("Second option", for: [])
         breakoutOptionText.isHidden = true
         
         print(mainStoryArray)// testing line to check if output is correct
@@ -245,7 +245,7 @@ class GameScreen: UIViewController {
     }
     
     
-    //func alt event
+    //alternate line event display
     func alternateStoryline(buttonID: Int) {
         option1Text.setTitle("", for: [])
         option2Text.setTitle("", for: [])
