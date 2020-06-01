@@ -36,6 +36,7 @@ class TitleScreen: UIViewController {
             self.defaults.removeObject(forKey: "currentLine")
             self.defaults.removeObject(forKey: "playerName")
             self.defaults.removeObject(forKey: "playerWeapon")
+            self.defaults.set(false, forKey: "bgmMuteStatus")
             self.viewDidLoad()
         }))
         clearSavedGame.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))

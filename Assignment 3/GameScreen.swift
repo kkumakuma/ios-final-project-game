@@ -100,7 +100,6 @@ class GameScreen: UIViewController {
             timeBreakoutPt2(buttonID: 1)
         } else if gameStoryText.text == actionInProgressB {
             timeBreakoutPt2(buttonID: 2)
-            print("this is happening")// testing line
         }
     }
     
@@ -167,7 +166,6 @@ class GameScreen: UIViewController {
         goodEndCounter = defaults.integer(forKey: "goodEndCounter")
         badEndCounter = defaults.integer(forKey: "badEndCounter")
         buttonNo = defaults.integer(forKey: "buttonIdentifier")
-        print(defaults.integer(forKey: "buttonIdentifier"))
         storyArrayNo = storySavePoint
         breakoutOptionText.isHidden = true
         
