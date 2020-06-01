@@ -11,10 +11,13 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    let defaults = UserDefaults.standard
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        MusicPlayer.shared.startBGM(bgmFileName: "titleBGM")
+        if defaults.bool(forKey: "bgmMuteStatus") == true {
+            MusicPlayer.shared.silenceBGM()
+        }
         return true
     }
 

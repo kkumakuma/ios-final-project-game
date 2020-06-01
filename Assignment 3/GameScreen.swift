@@ -17,12 +17,15 @@ class GameScreen: UIViewController {
     var optionBStoryArray = [""]
     var altStoryArrayA = [""]
     var altStoryArrayB = [""]
+    var storyEndingArray = [""]
     var textFileContent = ""
     var timeGateEventArrayA = [4, 8, 9] //can be any array
     var timeGateEventArrayB = [3, 6, 12] //can be any array
     var altStoryEventArray = [2, 14, 21] //set array as per main story
     var storyArrayNo = 0
     var buttonNo = 0
+    var timerCount = 0
+    var endingArrayNo = 1
     
     //time events
     var breakoutMessageA = "I'm looking for something, Brb."
@@ -37,6 +40,7 @@ class GameScreen: UIViewController {
     var playerWeapon = "???"
     var goodEndCounter = 0
     var badEndCounter = 0
+    var playerKarma = "neutral"
     
     //game save variables
     var storySavePoint = 0
@@ -71,6 +75,9 @@ class GameScreen: UIViewController {
                 saveGame(buttonID: 1)
                 alternateStoryline(buttonID: 1)
             }
+        } else if storyArrayNo == mainStoryArray.count - 1 {
+            advanceStory()
+            displayEnding()
         }
     }
     
@@ -86,6 +93,9 @@ class GameScreen: UIViewController {
                 saveGame(buttonID: 2)
                 alternateStoryline(buttonID: 2)
             }
+        } else if storyArrayNo == mainStoryArray.count - 1 {
+            advanceStory()
+            displayEnding()
         }
     }
     
@@ -180,7 +190,7 @@ class GameScreen: UIViewController {
                     gameStoryText.text = self.actionInProgressB
                 default: break
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            delay(1) {
                 self.breakoutOptionText.isHidden = false
             }
             switch buttonNo {
@@ -245,7 +255,7 @@ class GameScreen: UIViewController {
             saveGame(buttonID: 2)
         default: break
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        delay(2) {
             self.option2Text.sendActions(for: .touchUpInside)
         }
     }
@@ -262,7 +272,7 @@ class GameScreen: UIViewController {
                 gameStoryText.text = breakoutMessageB
             default: break
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        delay(2) {
             self.gameStoryText.textColor = #colorLiteral(red: 0.2115378903, green: 0.5939850973, blue: 0.3091130621, alpha: 1)
             switch buttonID {
                 case 1:
@@ -272,10 +282,18 @@ class GameScreen: UIViewController {
                 default: break
             }
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            self.breakoutOptionText.isHidden = false
+        //DELAY FOR TIME GATE
+        switch buttonID {
+            case 1:
+                delay(5) {
+                    self.breakoutOptionText.isHidden = false
+                }
+            case 2:
+                delay(10) {
+                    self.breakoutOptionText.isHidden = false
+                }
+            default: break
         }
-        
         switch buttonID {
             case 1:
                 breakoutOptionText.setTitle("Did you find it?", for: [])
@@ -291,22 +309,76 @@ class GameScreen: UIViewController {
         switch buttonID {
             case 1:
                 gameStoryText.text = breakoutPt2MessageA
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                delay(2) {
                     self.gameStoryText.text = "But yeah, I got it"
                 }
                 timeGateEventArrayA.remove(at: 0)
                 saveGame(buttonID: 1)
             case 2:
                 gameStoryText.text = breakoutPt2MessageB
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                delay(2) {
                     self.gameStoryText.text = "Alright I'm up."
                 }
                 timeGateEventArrayB.remove(at: 0)
                 saveGame(buttonID: 2)
             default: break
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        delay(4) {
             self.option2Text.sendActions(for: .touchUpInside)
+        }
+    }
+    
+    //loads and displays ending sequence based on player choices
+    func displayEnding() {
+        if storyArrayNo == mainStoryArray.count {
+            if goodEndCounter / mainStoryArray.count > Int(0.70) {
+                playerKarma = "good"
+            } else if badEndCounter / mainStoryArray.count > Int(0.70) {
+                playerKarma = "bad"
+            } else {
+                playerKarma = "neutral"
+            }
+            
+            switch playerKarma {
+                case "good":
+                    storyEndingArray = loadTextToArray(fileName: "goodEnding")!
+                    delay(2) {
+                        self.gameStoryText.text = self.storyEndingArray[0]
+                        self.endingSequence()
+                    }
+                case "neutral":
+                    storyEndingArray = loadTextToArray(fileName: "neutralEnding")!
+                    delay(2) {
+                        self.gameStoryText.text = self.storyEndingArray[0]
+                        self.endingSequence()
+                    }
+                case "bad":
+                    storyEndingArray = loadTextToArray(fileName: "badEnding")!
+                    delay(2) {
+                        self.gameStoryText.text = self.storyEndingArray[0]
+                        self.endingSequence()
+                    }
+                default: break
+            }
+        }
+    }
+    
+    //adds delay
+    func delay(_ delay:Double, closure:@escaping ()->()) {
+        DispatchQueue.main.asyncAfter(
+            deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
+    }
+    
+    //ending lines display loop
+    func endingSequence() {
+        _ = Timer.scheduledTimer(withTimeInterval: 5.5, repeats: true){
+            t in self.timerCount += 1
+            self.gameStoryText.text = self.storyEndingArray[self.endingArrayNo]
+            self.endingArrayNo += 1
+            if self.timerCount == self.storyEndingArray.count - 1 {
+                t.invalidate()
+                self.performSegue(withIdentifier: "toCredits", sender: self)
+            }
         }
     }
 }

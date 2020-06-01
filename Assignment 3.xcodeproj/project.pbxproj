@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E404D0CB2484E23A006B9823 /* goodEnding.txt in Resources */ = {isa = PBXBuildFile; fileRef = E404D0CA2484E23A006B9823 /* goodEnding.txt */; };
+		E404D0D12484E279006B9823 /* neutralEnding.txt in Resources */ = {isa = PBXBuildFile; fileRef = E404D0D02484E279006B9823 /* neutralEnding.txt */; };
+		E404D0D32484E287006B9823 /* badEnding.txt in Resources */ = {isa = PBXBuildFile; fileRef = E404D0D22484E287006B9823 /* badEnding.txt */; };
+		E404D0DC2484FC70006B9823 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E404D0DB2484FC70006B9823 /* Main.storyboard */; };
+		E404D0DE24850369006B9823 /* titleBGM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E404D0DD24850369006B9823 /* titleBGM.mp3 */; };
 		E4FD9FAC24825D3B00CC5BFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD9FAB24825D3B00CC5BFF /* AppDelegate.swift */; };
 		E4FD9FAE24825D3B00CC5BFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD9FAD24825D3B00CC5BFF /* SceneDelegate.swift */; };
-		E4FD9FB324825D3B00CC5BFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4FD9FB124825D3B00CC5BFF /* Main.storyboard */; };
 		E4FD9FB524825D3D00CC5BFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4FD9FB424825D3D00CC5BFF /* Assets.xcassets */; };
 		E4FD9FB824825D3D00CC5BFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4FD9FB624825D3D00CC5BFF /* LaunchScreen.storyboard */; };
 		E4FD9FC324825D3E00CC5BFF /* Assignment_3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD9FC224825D3E00CC5BFF /* Assignment_3Tests.swift */; };
@@ -25,7 +29,6 @@
 		E4FD9FF72483CFA100CC5BFF /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD9FF62483CFA100CC5BFF /* SettingsScreen.swift */; };
 		E4FD9FF924840C5900CC5BFF /* FontChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD9FF824840C5900CC5BFF /* FontChange.swift */; };
 		E4FD9FFB2484951900CC5BFF /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FD9FFA2484951900CC5BFF /* MusicPlayer.swift */; };
-		E4FD9FFF24849A1C00CC5BFF /* titleBGM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E4FD9FFE24849A1C00CC5BFF /* titleBGM.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,10 +49,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E404D0CA2484E23A006B9823 /* goodEnding.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = goodEnding.txt; sourceTree = "<group>"; };
+		E404D0D02484E279006B9823 /* neutralEnding.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = neutralEnding.txt; sourceTree = "<group>"; };
+		E404D0D22484E287006B9823 /* badEnding.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = badEnding.txt; sourceTree = "<group>"; };
+		E404D0DB2484FC70006B9823 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E404D0DD24850369006B9823 /* titleBGM.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = titleBGM.mp3; path = ../../../../Downloads/titleBGM.mp3; sourceTree = "<group>"; };
 		E4FD9FA824825D3B00CC5BFF /* Assignment 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Assignment 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4FD9FAB24825D3B00CC5BFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4FD9FAD24825D3B00CC5BFF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E4FD9FB224825D3B00CC5BFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E4FD9FB424825D3D00CC5BFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4FD9FB724825D3D00CC5BFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4FD9FB924825D3D00CC5BFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,7 +77,6 @@
 		E4FD9FF62483CFA100CC5BFF /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		E4FD9FF824840C5900CC5BFF /* FontChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontChange.swift; sourceTree = "<group>"; };
 		E4FD9FFA2484951900CC5BFF /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
-		E4FD9FFE24849A1C00CC5BFF /* titleBGM.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = titleBGM.mp3; path = ../../../../Downloads/titleBGM.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,9 +129,9 @@
 			children = (
 				E4FD9FAB24825D3B00CC5BFF /* AppDelegate.swift */,
 				E4FD9FAD24825D3B00CC5BFF /* SceneDelegate.swift */,
-				E4FD9FB124825D3B00CC5BFF /* Main.storyboard */,
 				E4FD9FB424825D3D00CC5BFF /* Assets.xcassets */,
 				E4FD9FB624825D3D00CC5BFF /* LaunchScreen.storyboard */,
+				E404D0DB2484FC70006B9823 /* Main.storyboard */,
 				E4FD9FB924825D3D00CC5BFF /* Info.plist */,
 				E4FD9FFA2484951900CC5BFF /* MusicPlayer.swift */,
 				E4FD9FF824840C5900CC5BFF /* FontChange.swift */,
@@ -138,7 +144,10 @@
 				E4FD9FEA24828E1D00CC5BFF /* optionsSideB.txt */,
 				E4FD9FF0248399FB00CC5BFF /* alternateStoryLinesA.txt */,
 				E4FD9FEE248399E300CC5BFF /* alternateStoryLinesB.txt */,
-				E4FD9FFE24849A1C00CC5BFF /* titleBGM.mp3 */,
+				E404D0CA2484E23A006B9823 /* goodEnding.txt */,
+				E404D0D02484E279006B9823 /* neutralEnding.txt */,
+				E404D0D22484E287006B9823 /* badEnding.txt */,
+				E404D0DD24850369006B9823 /* titleBGM.mp3 */,
 			);
 			path = "Assignment 3";
 			sourceTree = "<group>";
@@ -265,15 +274,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E404D0DE24850369006B9823 /* titleBGM.mp3 in Resources */,
 				E4FD9FE1248287BD00CC5BFF /* mainStory.txt in Resources */,
 				E4FD9FF1248399FB00CC5BFF /* alternateStoryLinesA.txt in Resources */,
 				E4FD9FE924828DEE00CC5BFF /* optionsSideA.txt in Resources */,
+				E404D0DC2484FC70006B9823 /* Main.storyboard in Resources */,
+				E404D0D12484E279006B9823 /* neutralEnding.txt in Resources */,
+				E404D0CB2484E23A006B9823 /* goodEnding.txt in Resources */,
 				E4FD9FEF248399E300CC5BFF /* alternateStoryLinesB.txt in Resources */,
-				E4FD9FFF24849A1C00CC5BFF /* titleBGM.mp3 in Resources */,
 				E4FD9FB824825D3D00CC5BFF /* LaunchScreen.storyboard in Resources */,
 				E4FD9FEB24828E1D00CC5BFF /* optionsSideB.txt in Resources */,
 				E4FD9FB524825D3D00CC5BFF /* Assets.xcassets in Resources */,
-				E4FD9FB324825D3B00CC5BFF /* Main.storyboard in Resources */,
+				E404D0D32484E287006B9823 /* badEnding.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,14 +353,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E4FD9FB124825D3B00CC5BFF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E4FD9FB224825D3B00CC5BFF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E4FD9FB624825D3D00CC5BFF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

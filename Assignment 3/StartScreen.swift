@@ -17,10 +17,6 @@ class StartScreen: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        MusicPlayer.shared.startBGM(bgmFileName: "titleBGM")
-        if defaults.bool(forKey: "bgmMuteStatus") == true {
-            MusicPlayer.shared.silenceBGM()
-        } 
         introTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {
             timer in
             self.transitionTime()

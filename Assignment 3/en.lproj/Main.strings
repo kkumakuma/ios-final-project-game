@@ -1,0 +1,51 @@
+
+/* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "5Ne-Em-yt3"; */
+"5Ne-Em-yt3.normalTitle" = "Settings";
+
+/* Class = "UILabel"; text = ":def//end:"; ObjectID = "6Bg-GH-Pcg"; */
+"6Bg-GH-Pcg.text" = ":def//end:";
+
+/* Class = "UIButton"; normalTitle = "Back to Title"; ObjectID = "6fj-Aa-KvR"; */
+"6fj-Aa-KvR.normalTitle" = "Back to Title";
+
+/* Class = "UILabel"; text = "Player Name"; ObjectID = "8Rm-eV-VmO"; */
+"8Rm-eV-VmO.text" = "Player Name";
+
+/* Class = "UILabel"; text = "Player Weapon"; ObjectID = "CRP-4A-Axb"; */
+"CRP-4A-Axb.text" = "Player Weapon";
+
+/* Class = "UILabel"; text = "Thank You For Playing"; ObjectID = "D5b-Z5-JdW"; */
+"D5b-Z5-JdW.text" = "Thank You For Playing";
+
+/* Class = "UIButton"; normalTitle = "Option 2"; ObjectID = "E5Y-tf-kVh"; */
+"E5Y-tf-kVh.normalTitle" = "Option 2";
+
+/* Class = "UIButton"; normalTitle = "Clear Settings"; ObjectID = "Fpu-eA-yvg"; */
+"Fpu-eA-yvg.normalTitle" = "Clear Settings";
+
+/* Class = "UIButton"; normalTitle = "Save Settings"; ObjectID = "INC-Xj-EAx"; */
+"INC-Xj-EAx.normalTitle" = "Save Settings";
+
+/* Class = "UILabel"; text = "iOS App Development Assignment 3"; ObjectID = "Or2-W1-iRf"; */
+"Or2-W1-iRf.text" = "iOS App Development Assignment 3";
+
+/* Class = "UILabel"; text = "Story text"; ObjectID = "ddj-RQ-NKR"; */
+"ddj-RQ-NKR.text" = "Story text";
+
+/* Class = "UIButton"; normalTitle = "Mute BGM"; ObjectID = "eVd-ny-iQV"; */
+"eVd-ny-iQV.normalTitle" = "Mute BGM";
+
+/* Class = "UIButton"; normalTitle = "Option 1"; ObjectID = "hFY-9K-9oV"; */
+"hFY-9K-9oV.normalTitle" = "Option 1";
+
+/* Class = "UILabel"; text = "Welcome"; ObjectID = "hO2-la-Fgm"; */
+"hO2-la-Fgm.text" = "Welcome";
+
+/* Class = "UIButton"; normalTitle = "Load Game"; ObjectID = "hgp-QU-tOt"; */
+"hgp-QU-tOt.normalTitle" = "Load Game";
+
+/* Class = "UIButton"; normalTitle = "Breakout "; ObjectID = "kY8-3D-tnG"; */
+"kY8-3D-tnG.normalTitle" = "Breakout ";
+
+/* Class = "UIButton"; normalTitle = "Clear Saves"; ObjectID = "njO-WB-s0c"; */
+"njO-WB-s0c.normalTitle" = "Clear Saves";
