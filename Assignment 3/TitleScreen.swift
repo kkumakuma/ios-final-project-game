@@ -59,5 +59,4 @@ class TitleScreen: UIViewController {
             welcomeMessageLabel.text = "Hello, unknown Test Subject."
         }
     }
-
 }

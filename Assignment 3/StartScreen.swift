@@ -29,5 +29,4 @@ class StartScreen: UIViewController {
             timeRemaining -= 1
         }
     }
-
 }

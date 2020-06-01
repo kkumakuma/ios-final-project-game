@@ -23,8 +23,13 @@ class GameScreen: UIViewController {
     var altStoryEventArray = [2, 14, 21] //set array as per main story
     var storyArrayNo = 0
     
-    var breakoutMessageA = "Can't you be a little more patient?"
-    var breakoutMessageB = "Is it time to get up already?"
+    //time events
+    var breakoutMessageA = "I'm looking for something, Brb."
+    var breakoutMessageB = "Gonna take a nap."
+    var actionInProgressA = "Unknown is busy."
+    var actionInProgressB = "Unknown is asleep."
+    var breakoutPt2MessageA = "Can't you be a little more patient?"
+    var breakoutPt2MessageB = "Is it time to get up already?"
     
     //player settings
     var playerName = "Unknown"
@@ -32,7 +37,7 @@ class GameScreen: UIViewController {
     var goodEndCounter = 0
     var badEndCounter = 0
     
-    //game save
+    //game save variables
     var storySavePoint = 0
     var currentStoryLine = ""
     
@@ -44,21 +49,14 @@ class GameScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if defaults.value(forKey: "playerName") == nil {
-            loadDefaultData()
-        }
-        playerName = defaults.value(forKey: "playerName") as! String
-        playerWeapon = defaults.value(forKey: "playerWeapon") as! String
         loadTextFiles()
-        storySavePoint = defaults.integer(forKey: "savedStoryLineNo")
+        loadData()
         if defaults.integer(forKey: "savedStoryLineNo") != 0 {
             loadSave()
         } else {
             initGame()
         }
-        print(storySavePoint)
     }
-    
     
     //button actions for 1st player choice
     @IBAction func option1Button(_ sender: UIButton) {
@@ -67,7 +65,7 @@ class GameScreen: UIViewController {
                 advanceStory()
             } else if timeGateEventArrayA.contains(storyArrayNo) {
                 saveGame()
-                timeBreakoutA()
+                timeBreakout(buttonID: 1)
             } else if altStoryEventArray.contains(storyArrayNo) {
                 saveGame()
                 alternateStoryline(buttonID: 1)
@@ -82,14 +80,13 @@ class GameScreen: UIViewController {
                 advanceStory()
             } else if timeGateEventArrayB.contains(storyArrayNo) {
                 saveGame()
-                timeBreakoutB()
+                timeBreakout(buttonID: 2)
             } else if altStoryEventArray.contains(storyArrayNo) {
                 saveGame()
                 alternateStoryline(buttonID: 2)
             }
         }
     }
-    
     
     //button actions for time gated breakout events
     @IBAction func breakoutOptionButton(_ sender: UIButton) {
@@ -98,13 +95,12 @@ class GameScreen: UIViewController {
         option2Text.setTitle("", for: [])
         option2Text.isHidden = false
         breakoutOptionText.isHidden = true
-        if gameStoryText.text == breakoutMessageA {
-            timeBreakoutA2()
-        } else if gameStoryText.text == breakoutMessageB {
-            timeBreakoutB2()
+        if gameStoryText.text == actionInProgressA {
+            timeBreakoutPt2(buttonID: 1)
+        } else if gameStoryText.text == actionInProgressB {
+            timeBreakoutPt2(buttonID: 2)
         }
     }
-    
     
     //loads story from files
     func loadTextFiles() {
@@ -115,25 +111,29 @@ class GameScreen: UIViewController {
         altStoryArrayB = loadTextToArray(fileName: "alternateStoryLinesB")!
     }
     
-    
     //initialises game
     func initGame() {
         gameStoryText.text = "First line of story."
         option1Text.setTitle("First option", for: [])
         option2Text.setTitle("Second option", for: [])
         breakoutOptionText.isHidden = true
-        
-        print(mainStoryArray)// testing line to check if output is correct
     }
     
-    //loads default data if userdefaults does not exist
-    func loadDefaultData() {
+    //loads default data if userdefaults does not exist and stores in variables
+    func loadData() {
         if defaults.string(forKey: "playerName") == nil {
             defaults.set("Unknown", forKey: "playerName")
+        } else {
+            playerName = defaults.value(forKey: "playerName") as! String
         }
         if defaults.string(forKey: "playerWeapon") == nil {
             defaults.set("Sword", forKey: "playerWeapon")
+        } else {
+            playerWeapon = defaults.value(forKey: "playerWeapon") as! String
         }
+        storySavePoint = defaults.integer(forKey: "savedStoryLineNo")
+        actionInProgressA = "\(playerName) is busy."
+        actionInProgressB = "\(playerName) is asleep."
     }
     
     //saves game
@@ -147,9 +147,7 @@ class GameScreen: UIViewController {
         defaults.set(badEndCounter, forKey: "badEndCounter")
         storySavePoint = defaults.integer(forKey: "savedStoryLineNo")
         currentStoryLine = defaults.value(forKey: "currentLine") as! String
-        print(storySavePoint) //testing line
     }
-    
     
     //loads saved game
     func loadSave() {
@@ -163,7 +161,8 @@ class GameScreen: UIViewController {
         if timeGateEventArrayA.contains(storyArrayNo) {
             option1Text.isHidden = true
             option2Text.isHidden = true
-            gameStoryText.text = self.breakoutMessageA
+            self.gameStoryText.textColor = #colorLiteral(red: 0.2115378903, green: 0.5939850973, blue: 0.3091130621, alpha: 1)
+            gameStoryText.text = self.actionInProgressA
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.breakoutOptionText.isHidden = false
             }
@@ -171,15 +170,14 @@ class GameScreen: UIViewController {
         } else if timeGateEventArrayB.contains(storyArrayNo) {
             option1Text.isHidden = true
             option2Text.isHidden = true
-            gameStoryText.text = self.breakoutMessageB
+            self.gameStoryText.textColor = #colorLiteral(red: 0.2115378903, green: 0.5939850973, blue: 0.3091130621, alpha: 1)
+            gameStoryText.text = self.actionInProgressB
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.breakoutOptionText.isHidden = false
             }
             breakoutOptionText.setTitle("Come on, wake up.", for: [])
         } else {
-            gameStoryText.text = mainStoryArray[storyArrayNo]
-            option1Text.setTitle(optionAStoryArray[storyArrayNo], for: [])
-            option2Text.setTitle(optionBStoryArray[storyArrayNo], for: [])
+            setMainStoryLines()
             self.option2Text.sendActions(for: .touchUpInside)
         }
     }
@@ -189,7 +187,6 @@ class GameScreen: UIViewController {
         textFileContent = textFileContent.replacingOccurrences(of: "playerName", with: "\(playerName)")
         textFileContent = textFileContent.replacingOccurrences(of: "playerWeapon", with: "\(playerWeapon)")
     }
-    
     
     //loads story text from files into arrays
     func loadTextToArray(fileName: String) -> [String]? {
@@ -206,71 +203,19 @@ class GameScreen: UIViewController {
         }
     }
     
-    
     //advances story if no breakout points are hit
     func advanceStory() {
-        gameStoryText.text = mainStoryArray[storyArrayNo]
-        option1Text.setTitle(optionAStoryArray[storyArrayNo], for: [])
-        option2Text.setTitle(optionBStoryArray[storyArrayNo], for: [])
+        setMainStoryLines()
         storyArrayNo += 1
     }
     
-    
-    //breakout interactions for time gated sequences on option A
-    func timeBreakoutA() {
-        option1Text.isHidden = true
-        option2Text.isHidden = true
-        gameStoryText.text = "I'm looking for something. Brb."
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.gameStoryText.textColor = #colorLiteral(red: 0.2115378903, green: 0.5939850973, blue: 0.3091130621, alpha: 1)
-            self.gameStoryText.text = "[\(self.playerName) is busy]"
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            self.gameStoryText.textColor = UIColor.systemTeal
-            self.gameStoryText.text = self.breakoutMessageA
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.breakoutOptionText.isHidden = false
-            }
-        }
-        breakoutOptionText.setTitle("Did you find it?", for: [])
+    //displays main story lines
+    func setMainStoryLines() {
+        gameStoryText.text = mainStoryArray[storyArrayNo]
+        option1Text.setTitle(optionAStoryArray[storyArrayNo], for: [])
+        option2Text.setTitle(optionBStoryArray[storyArrayNo], for: [])
     }
-    func timeBreakoutA2() {
-        gameStoryText.text = "Yeah, I got it"
-        timeGateEventArrayA.remove(at: 0)
-        saveGame()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.option2Text.sendActions(for: .touchUpInside)
-        }
-    }
-    
-    //breakout interactions for time gated sequences on option B
-    func timeBreakoutB() {
-        option1Text.isHidden = true
-        option2Text.isHidden = true
-        gameStoryText.text = "Gonna take a nap."
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.gameStoryText.textColor = #colorLiteral(red: 0.2115378903, green: 0.5939850973, blue: 0.3091130621, alpha: 1)
-            self.gameStoryText.text = "[\(self.playerName) is asleep]"
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            self.gameStoryText.textColor = UIColor.systemTeal
-            self.gameStoryText.text = self.breakoutMessageB
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.breakoutOptionText.isHidden = false
-            }
-        }
-        breakoutOptionText.setTitle("Come on, wake up.", for: [])
-    }
-    func timeBreakoutB2() {
-        gameStoryText.text = "Alright I'm up."
-        timeGateEventArrayB.remove(at: 0)
-        saveGame()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.option2Text.sendActions(for: .touchUpInside)
-        }
-    }
-    
-    
+
     //alternate line event display
     func alternateStoryline(buttonID: Int) {
         option1Text.setTitle("", for: [])
@@ -284,6 +229,68 @@ class GameScreen: UIViewController {
             gameStoryText.text = altStoryArrayB[0]
             badEndCounter += 1
         default: break
+        }
+        saveGame()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.option2Text.sendActions(for: .touchUpInside)
+        }
+    }
+
+    // time gated interaction events
+    func timeBreakout(buttonID: Int) {
+        option1Text.isHidden = true
+        option2Text.isHidden = true
+        
+        switch buttonID {
+            case 1:
+                gameStoryText.text = breakoutMessageA
+            case 2:
+                gameStoryText.text = breakoutMessageB
+            default: break
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.gameStoryText.textColor = #colorLiteral(red: 0.2115378903, green: 0.5939850973, blue: 0.3091130621, alpha: 1)
+            switch buttonID {
+                case 1:
+                    self.gameStoryText.text = self.actionInProgressA
+                case 2:
+                    self.gameStoryText.text = self.actionInProgressB
+                default: break
+            }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.gameStoryText.textColor = UIColor.systemTeal
+            switch buttonID {
+                case 1:
+                    self.gameStoryText.text = self.breakoutPt2MessageA
+                case 2:
+                    self.gameStoryText.text = self.breakoutPt2MessageB
+                default: break
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.breakoutOptionText.isHidden = false
+            }
+        }
+        switch buttonID {
+            case 1:
+                breakoutOptionText.setTitle("Did you find it?", for: [])
+            case 2:
+                breakoutOptionText.setTitle("Come on, wake up.", for: [])
+            default: break
+        }
+    }
+    
+    //time gated event part 2
+    func timeBreakoutPt2(buttonID: Int) {
+        self.gameStoryText.textColor = UIColor.systemTeal
+        switch buttonID {
+            case 1:
+                gameStoryText.text = "Yeah, I got it"
+                timeGateEventArrayA.remove(at: 0)
+            case 2:
+                gameStoryText.text = "Alright I'm up."
+                timeGateEventArrayB.remove(at: 0)
+            default: break
         }
         saveGame()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
