@@ -75,6 +75,7 @@ class SettingsScreen: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         playerWeapon = weaponPickerData[row]
+        defaults.set(weaponPickerData[row], forKey: "playerWeapon")
     }
     
     
@@ -101,7 +102,10 @@ class SettingsScreen: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         if defaults.string(forKey: "playerName") != nil {
             playerName = defaults.string(forKey: "playerName") ?? "Unknown"
-            nameInput.attributedPlaceholder = NSAttributedString(string: playerName, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            nameInput.attributedPlaceholder = NSAttributedString(string: playerName, attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        } else {
+            playerName = "Unknown"
+            nameInput.attributedPlaceholder = NSAttributedString(string: playerName, attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         }
         
         if defaults.string(forKey: "playerWeapon") == "Shield" {
@@ -111,7 +115,7 @@ class SettingsScreen: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         
         bgmMuteStatus = defaults.bool(forKey: "bgmMuteStatus")
-        if defaults.bool(forKey: "bgmMuteStatus") == true {
+        if bgmMuteStatus == true {
             muteBGMText.setTitle("Unmute BGM", for: [])
         } else {
             muteBGMText.setTitle("Mute BGM", for: [])

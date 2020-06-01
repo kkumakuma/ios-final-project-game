@@ -37,6 +37,9 @@ class TitleScreen: UIViewController {
             self.defaults.removeObject(forKey: "playerName")
             self.defaults.removeObject(forKey: "playerWeapon")
             self.defaults.set(false, forKey: "bgmMuteStatus")
+            if self.defaults.bool(forKey: "bgmMuteStatus") == false {
+                MusicPlayer.shared.unmuteBGM()
+            }
             self.viewDidLoad()
         }))
         clearSavedGame.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
