@@ -12,6 +12,7 @@ class GameScreen: UIViewController {
     
     let defaults = UserDefaults.standard
     
+    //main game variables
     var mainStoryArray = [""]
     var optionAStoryArray = [""]
     var optionBStoryArray = [""]
