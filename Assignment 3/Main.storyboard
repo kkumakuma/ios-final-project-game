@@ -306,6 +306,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="Ehr-nD-Ug0"/>
         <segue reference="OSE-6b-F7v"/>
     </inferredMetricsTieBreakers>
 </document>
