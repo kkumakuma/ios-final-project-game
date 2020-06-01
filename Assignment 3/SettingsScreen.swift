@@ -14,11 +14,27 @@ class SettingsScreen: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var weaponPickerData: [String] = [String]()
     var playerWeapon = ""
     var playerName = ""
+    var bgmMuteStatus = false
     
     @IBOutlet weak var clearSettingsText: UIButton!
     @IBOutlet weak var weaponPickerScroll: UIPickerView!
     @IBOutlet weak var nameInput: UITextField!
+    @IBOutlet weak var muteBGMText: UIButton!
     
+    @IBAction func muteBGMButton(_ sender: Any) {
+        if bgmMuteStatus == false {
+            defaults.set(true, forKey: "bgmMuteStatus")
+            MusicPlayer.shared.muteBGM()
+            muteBGMText.setTitle("Mute BGM", for: [])
+            self.viewDidLoad()
+        } else if bgmMuteStatus == true {
+            defaults.set(false, forKey: "bgmMuteStatus")
+            MusicPlayer.shared.unmuteBGM()
+            muteBGMText.setTitle("Unmute BGM", for: [])
+            self.viewDidLoad()
+        }
+    }
+  
     @IBAction func saveSettings(_ sender: UIButton) {
         if nameInput.text != "" {
             defaults.set(nameInput.text, forKey: "playerName")
@@ -31,6 +47,10 @@ class SettingsScreen: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func clearSettings(_ sender: Any) {
         defaults.removeObject(forKey: "playerName")
         defaults.removeObject(forKey: "playerWeapon")
+        defaults.set(false, forKey: "bgmMuteStatus")
+        if defaults.bool(forKey: "bgmMuteStatus") == false {
+            MusicPlayer.shared.unmuteBGM()
+        }
         defaults.synchronize()
         self.performSegue(withIdentifier: "settingsToTitle", sender: self)
     }
@@ -48,8 +68,7 @@ class SettingsScreen: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let pickerLabel = UILabel()
         pickerLabel.textColor = UIColor.white
         pickerLabel.text = weaponPickerData[row]
-        // pickerLabel.font = UIFont(name: pickerLabel.font.fontName, size: 15)
-        pickerLabel.font = UIFont(name: "Courier New", size: 22) // In this use your custom font
+        pickerLabel.font = UIFont(name: "Courier New", size: 22)
         pickerLabel.textAlignment = NSTextAlignment.center
         return pickerLabel
     }
@@ -89,6 +108,13 @@ class SettingsScreen: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             weaponPickerScroll.selectRow(1, inComponent: 0, animated: false)
         } else {
             weaponPickerScroll.selectRow(0, inComponent: 0, animated: false)
+        }
+        
+        bgmMuteStatus = defaults.bool(forKey: "bgmMuteStatus")
+        if defaults.bool(forKey: "bgmMuteStatus") == true {
+            muteBGMText.setTitle("Unmute BGM", for: [])
+        } else {
+            muteBGMText.setTitle("Mute BGM", for: [])
         }
     }
 }

@@ -98,6 +98,17 @@
                                     <action selector="clearSettings:" destination="sul-ZS-KRh" eventType="touchUpInside" id="Tbi-Li-6bZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVd-ny-iQV">
+                                <rect key="frame" x="101" y="571" width="213" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Mute BGM">
+                                    <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="muteBGMButton:" destination="sul-ZS-KRh" eventType="touchUpInside" id="k6C-ij-f6I"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="L5b-sM-2oO"/>
@@ -105,6 +116,7 @@
                     <navigationItem key="navigationItem" id="kaU-r3-YXL"/>
                     <connections>
                         <outlet property="clearSettingsText" destination="Fpu-eA-yvg" id="LZA-Af-lqH"/>
+                        <outlet property="muteBGMText" destination="eVd-ny-iQV" id="U84-gA-gcp"/>
                         <outlet property="nameInput" destination="6hK-9I-7mA" id="aZi-Nz-7nX"/>
                         <outlet property="weaponPickerScroll" destination="CFg-FS-Z5g" id="u9V-Kj-FuI"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="settingsToTitle" id="OSE-6b-F7v"/>
