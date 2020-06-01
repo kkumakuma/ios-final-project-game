@@ -100,6 +100,7 @@ class GameScreen: UIViewController {
             timeBreakoutPt2(buttonID: 1)
         } else if gameStoryText.text == actionInProgressB {
             timeBreakoutPt2(buttonID: 2)
+            print("this is happening")// testing line
         }
     }
     
@@ -274,18 +275,9 @@ class GameScreen: UIViewController {
             }
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            self.gameStoryText.textColor = UIColor.systemTeal
-            switch buttonID {
-                case 1:
-                    self.gameStoryText.text = self.breakoutPt2MessageA
-                case 2:
-                    self.gameStoryText.text = self.breakoutPt2MessageB
-                default: break
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.breakoutOptionText.isHidden = false
-            }
+            self.breakoutOptionText.isHidden = false
         }
+        
         switch buttonID {
             case 1:
                 breakoutOptionText.setTitle("Did you find it?", for: [])
@@ -300,16 +292,22 @@ class GameScreen: UIViewController {
         self.gameStoryText.textColor = UIColor.systemTeal
         switch buttonID {
             case 1:
-                gameStoryText.text = "Yeah, I got it"
+                gameStoryText.text = breakoutPt2MessageA
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.gameStoryText.text = "But yeah, I got it"
+                }
                 timeGateEventArrayA.remove(at: 0)
                 saveGame(buttonID: 1)
             case 2:
-                gameStoryText.text = "Alright I'm up."
+                gameStoryText.text = breakoutPt2MessageB
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.gameStoryText.text = "Alright I'm up."
+                }
                 timeGateEventArrayB.remove(at: 0)
                 saveGame(buttonID: 2)
             default: break
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             self.option2Text.sendActions(for: .touchUpInside)
         }
     }

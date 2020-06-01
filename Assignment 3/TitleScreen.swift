@@ -20,7 +20,6 @@ class TitleScreen: UIViewController {
     
     //loads any saved game
     @IBAction func startGameButton(_ sender: UIButton) {
-        MusicPlayer.shared.stopBGM()
         if defaults.integer(forKey: "savedStoryLineNo") != 0 {
             self.performSegue(withIdentifier: "loadGameSegue", sender: self)
         } else {

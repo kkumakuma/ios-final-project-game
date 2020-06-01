@@ -29,12 +29,6 @@ class MusicPlayer {
         }
     }
     
-    func stopBGM() {
-        guard let audioPlayer = audioPlayer else { return }
-        audioPlayer.setVolume(0, fadeDuration: 2)
-        audioPlayer.stop()
-    }
-    
     func muteBGM() {
         guard let audioPlayer = audioPlayer else { return }
         audioPlayer.setVolume(0, fadeDuration: 1)
