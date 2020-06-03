@@ -11,12 +11,11 @@ Member 2: Anita Gu
 Student ID: 13558770
 Email: 13558770@student.uts.edu.au
 
-Member 3:
-Student ID: 
-Email: 
+Member 3: Damian Russo
+Student ID: 13529286
+Email: 13529286@student.uts.edu.au
 
 
-Member 4:
-Student ID:
-Email:
-
+Member 4: Nathan Drabbe
+Student ID: 13189081
+Email: 13189081@student.uts.edu.au
