@@ -20,13 +20,8 @@ class TitleScreen: UIViewController {
     
     //loads any saved game
     @IBAction func startGameButton(_ sender: UIButton) {
-        if defaults.integer(forKey: "savedStoryLineNo") != 0 {
-            self.performSegue(withIdentifier: "loadGameSegue", sender: self)
-        } else {
-            self.performSegue(withIdentifier: "loadGameSegue", sender: self)
-        }
+        self.performSegue(withIdentifier: "loadGameSegue", sender: self)
     }
-    
 
     //clears saves
     @IBAction func clearSaves(_ sender: UIButton) {
