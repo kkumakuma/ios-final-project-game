@@ -4,51 +4,51 @@ Can you listen for a sec?
 What's your name?
 Yeah your name.
 You don't know your own name?
-....? What.
+I'm sorry?
 Lilith?
-.....
-Where's here?
-Research Facility?
-No I don't...
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+... playerName
+So, you were saying?
+Yep.
+Uh huh.
+The what facility?
+Can't say I do...
+What's going on?
+Months?
+....
+....
+I suppose you can't.
+Hang in there.
+[CONTINUE]
+Go grab some food.
+Fine, but make it quick.
+Yeah.
+...!
+Get out of there.
+I thought you were alone.
+Good idea.
+I suppose.
+Yeah, now get going!
+!?
+Move!
+Get out of there!
+Whats after you?
+Weren't you alone!?
+What map?
+Go left!
+There's a room at the end!
+That was close.
+Glad I could help.
+You should rest.
+Fine, just a quick rest.
+[CONTINUE]
+....
+[CONTINUE]
+That must be it then!
+What are we waiting for?
+Good luck!
+Of course!
+(raise the alarm.)
+....
+....
+....
+....

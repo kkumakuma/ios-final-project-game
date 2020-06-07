@@ -20,10 +20,10 @@ class GameScreen: UIViewController {
     var altStoryArrayB = [""]
     var storyEndingArray = [""]
     var textFileContent = ""
-    var timeGateEventArrayA = [21, 27] //can be any array
-    var timeGateEventArrayB = [40] //can be any array
-    var altStoryEventArray = [4, 19, 20, 25, 28, 35, 39, 42] //set array as per main story
-    var deadEndArray = [35]
+    var timeGateEventArrayA = [23, 29]
+    var timeGateEventArrayB = [42]
+    var altStoryEventArray = [4, 20, 22, 28, 30, 37, 41, 44]
+    var deadEndArray = [37]
     var storyArrayNo = 0
     var buttonNo = 0
     var timerCount = 0
@@ -77,8 +77,8 @@ class GameScreen: UIViewController {
                 timeBreakout(buttonID: 1)
                 goodEndCounter += 1
             } else if timeGateEventArrayB.contains(storyArrayNo) {
-                saveGame(buttonID: 1)
-                timeBreakout(buttonID: 1)
+                saveGame(buttonID: 2)
+                timeBreakout(buttonID: 2)
             } else if altStoryEventArray.contains(storyArrayNo) {
                 saveGame(buttonID: 1)
                 alternateStoryline(buttonID: 1)
@@ -91,6 +91,18 @@ class GameScreen: UIViewController {
     
     //button actions for 2nd player choice
     @IBAction func option2Button(_ sender: UIButton) {
+        print(storyArrayNo)
+        if deadEndArray.contains(storyArrayNo) {
+            option1Text.isHidden = true
+            option2Text.isHidden = true
+            self.gameStoryText.text = ""
+            playerKarma = "bad"
+            storyEndingArray = loadTextToArray(fileName: "badEnding")!
+            delay(2) { //change for actual game
+                self.gameStoryText.text = self.storyEndingArray[0]
+                self.endingSequence()
+            }
+        }
         if storyArrayNo < mainStoryArray.count - 1{
             if !timeGateEventArrayB.contains(storyArrayNo) && !altStoryEventArray.contains(storyArrayNo) {
                 advanceStory()
@@ -104,13 +116,6 @@ class GameScreen: UIViewController {
             } else if altStoryEventArray.contains(storyArrayNo) {
                 saveGame(buttonID: 2)
                 alternateStoryline(buttonID: 2)
-            } else if deadEndArray.contains(storyArrayNo) {
-                playerKarma = "bad"
-                storyEndingArray = loadTextToArray(fileName: "badEnding")!
-                delay(2) {
-                    self.gameStoryText.text = self.storyEndingArray[0]
-                    self.endingSequence()
-                }
             }
         } else if storyArrayNo == mainStoryArray.count - 1 {
             advanceStory()
@@ -394,11 +399,12 @@ class GameScreen: UIViewController {
     func endingSequence() {
         _ = Timer.scheduledTimer(withTimeInterval: 5.5, repeats: true){
             t in self.timerCount += 1
-            self.gameStoryText.text = self.storyEndingArray[self.endingArrayNo]
-            self.endingArrayNo += 1
             if self.timerCount == self.storyEndingArray.count - 1 {
                 t.invalidate()
                 self.performSegue(withIdentifier: "toCredits", sender: self)
+            } else {
+                self.gameStoryText.text = self.storyEndingArray[self.endingArrayNo]
+                self.endingArrayNo += 1
             }
         }
     }
