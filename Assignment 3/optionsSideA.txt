@@ -35,13 +35,10 @@ Whats after you?
 Weren't you alone!?
 What map?
 Go left!
-There's a room at the end!
+You made it!
 That was close.
-Glad I could help.
 You should rest.
 Fine, just a quick rest.
-[CONTINUE]
-....
 [CONTINUE]
 That must be it then!
 What are we waiting for?

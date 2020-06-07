@@ -17,7 +17,7 @@ What are you doing in there?
 That sounds lonely.
 That's odd.
 Enjoy it while it lasts.
-Are you really alone? I'm kidding.
+Are you really? I'm kidding.
 [CONTINUE]
 You don't need that.
 I'll wait here.
@@ -35,13 +35,10 @@ Who's they!?
 Maybe you can hide somewhere?
 Alright, I'm on it.
 Go right!
-.... (dead end)
-You made it.
+....
 You're all there, right?
 Get moving. They'll be back.
 Sleep well.
-[CONTINUE]
-(tap..tap..tap..)
 [CONTINUE]
 A breeze from the outside?
 Let's go!

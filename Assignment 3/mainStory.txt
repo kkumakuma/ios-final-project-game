@@ -1,10 +1,10 @@
 Hey. Hey can you hear me?
 Oh, great! I finally managed to contact someone on the Outside!
 Sorry there's no visuals, it took me months to just get the audio up and running.
-Ok so I want you to help me o- ALT
+Ok so I want you to help me o-
 My name, was it?
 Uhh... Let's see here. There's something displayed on this terminal here.
-P-l1l17H....?
+P-L1L17H....?
 That's pretty hard to say, huh. Hmm... I know! You can call me Lilith!
 While we're on that, what's your name?
 Well, hello playerName!
@@ -17,32 +17,29 @@ I've been trying to get out of here for months.
 For starters, there doesn't seem to be anyone here other than me.
 I guess you could say its abandoned, but the electricity and everything's still on...
 Seems like an awful waste, but I can't really complain, can I?
-You came at a good time. I thought I was going to lose it all by myself in here... ALT
-[STORY NOT INCLUDED FOR DEMO PURPOSES BUT ACTUALLY IM JUST LAZY]
-Well. I'm going to have to find something to eat. ALT
+You came at a good time. I thought I was going to lose it all by myself in here...
+[STORY CUT FOR DEMO PURPOSES]
+Well. I'm going to have to find something to eat.
 ...
 Alright, let's get going then.
 [Something clangs in the distance.]
 It sounds like... footsteps? Coming here?
 Th-that's actually a little creepy.
-Maybe I should find something to defend myself just in case? ALT
+Maybe I should find something to defend myself just in case?
 Something for protection can't hurt, right?
-Alright, so I managed to find this playerWeapon. It's a bit rusty, but it should do for now, right? ALT
+Alright, so I managed to find this playerWeapon. It's a bit rusty, but it should do for now.
 [Metal screeches as the door is yanked open.]
 Wh-
 [Something drops to the ground.]
 Th-they're after me!
 These weird machine-things!
 H-hey, can you check the map?
-Yeah that one. Which way should I go? ALT
-Alright, I'll go that way then. *** B DEAD END??
+Yeah that one. Which way should I go?
 [A door shuts.]
 Aah, I thought I was going to die for a minute there. Thanks for that.
-I'm a little tired after that... ALT
+I'm a little tired after that...
 zzz... Huh...?
-[STORY NOT INCLUDED FOR DEMO PURPOSES BUT ACTUALLY IM JUST LAZY]
-Hmm. I'll try getting into them, but I'm not sure I'll get anything useful. Let's see... ALT
-[STORY NOT INCLUDED FOR DEMO PURPOSES BUT ACTUALLY IM JUST LAZY]
+[STORY CUT FOR DEMO PURPOSES]
 I can feel a breeze coming from this gap here.
 I'm sure of it!
 Well, time to test out those security codes, huh.

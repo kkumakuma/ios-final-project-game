@@ -1,3 +1,4 @@
+"I'm sorry."
 --incoming connection--
 "Accept connection."
 "Central command to Branch 6. Do you copy?"

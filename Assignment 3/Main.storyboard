@@ -239,6 +239,13 @@
                                     <action selector="option1Button:" destination="ZIl-ni-bND" eventType="touchUpInside" id="0gq-Em-UYh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oS-OQ-1sh">
+                                <rect key="frame" x="28" y="26" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="systemAdvanceButton:" destination="ZIl-ni-bND" eventType="touchUpInside" id="FhM-yz-7qq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="dWP-g4-fhh"/>
@@ -249,6 +256,7 @@
                         <outlet property="gameStoryText" destination="ddj-RQ-NKR" id="rOi-eh-vg7"/>
                         <outlet property="option1Text" destination="hFY-9K-9oV" id="faS-pi-54S"/>
                         <outlet property="option2Text" destination="E5Y-tf-kVh" id="tah-0F-zDi"/>
+                        <outlet property="systemAdvanceText" destination="4oS-OQ-1sh" id="k3g-gR-rpZ"/>
                         <segue destination="PMx-zC-E4J" kind="show" identifier="toCredits" id="s3z-Cl-rCb"/>
                     </connections>
                 </viewController>

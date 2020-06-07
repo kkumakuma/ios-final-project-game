@@ -21,14 +21,14 @@ class GameScreen: UIViewController {
     var storyEndingArray = [""]
     var textFileContent = ""
     var timeGateEventArrayA = [23, 29]
-    var timeGateEventArrayB = [42]
-    var altStoryEventArray = [4, 20, 22, 28, 30, 37, 41, 44]
+    var timeGateEventArrayB = [41]
+    var altStoryEventArray = [4, 20, 22, 28, 30, 37, 41]
     var deadEndArray = [37]
     var storyArrayNo = 0
     var buttonNo = 0
     var timerCount = 0
     var endingArrayNo = 1
-    var altCount = 9
+    var altCount = 7
     var altNo = 0
     
     //time events
@@ -54,7 +54,7 @@ class GameScreen: UIViewController {
     @IBOutlet weak var option1Text: UIButton!
     @IBOutlet weak var option2Text: UIButton!
     @IBOutlet weak var breakoutOptionText: UIButton!
-    
+    @IBOutlet weak var systemAdvanceText: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +67,13 @@ class GameScreen: UIViewController {
         }
     }
     
+    @IBAction func systemAdvanceButton(_ sender: Any) {
+        if storyArrayNo < mainStoryArray.count - 1 {
+            if !timeGateEventArrayA.contains(storyArrayNo) {
+                advanceStory()
+            }
+        }
+    }
     //button actions for 1st player choice
     @IBAction func option1Button(_ sender: UIButton) {
         if storyArrayNo < mainStoryArray.count - 1 {
@@ -91,11 +98,9 @@ class GameScreen: UIViewController {
     
     //button actions for 2nd player choice
     @IBAction func option2Button(_ sender: UIButton) {
-        print(storyArrayNo)
         if deadEndArray.contains(storyArrayNo) {
             option1Text.isHidden = true
             option2Text.isHidden = true
-            self.gameStoryText.text = ""
             playerKarma = "bad"
             storyEndingArray = loadTextToArray(fileName: "badEnding")!
             delay(2) { //change for actual game
@@ -176,6 +181,8 @@ class GameScreen: UIViewController {
         defaults.set(timeGateEventArrayA, forKey: "timeGateArray1")
         defaults.set(timeGateEventArrayB, forKey: "timeGateArray2")
         defaults.set(altStoryEventArray, forKey: "altStoryLineArray")
+        defaults.set(altStoryArrayA, forKey: "altStoryArrayA")
+        defaults.set(altStoryArrayB, forKey: "altStoryArrayB")
         defaults.set(goodEndCounter, forKey: "goodEndCounter")
         defaults.set(badEndCounter, forKey: "badEndCounter")
         defaults.set(buttonNo, forKey: "buttonIdentifier")
@@ -195,6 +202,8 @@ class GameScreen: UIViewController {
         timeGateEventArrayA = defaults.array(forKey: "timeGateArray1") as! [Int]
         timeGateEventArrayB = defaults.array(forKey: "timeGateArray2") as! [Int]
         altStoryEventArray = defaults.array(forKey: "altStoryLineArray") as! [Int]
+        altStoryArrayA = defaults.array(forKey: "altStoryArrayA") as! [String]
+        altStoryArrayB = defaults.array(forKey: "altStoryArrayB") as! [String]
         goodEndCounter = defaults.integer(forKey: "goodEndCounter")
         badEndCounter = defaults.integer(forKey: "badEndCounter")
         buttonNo = defaults.integer(forKey: "buttonIdentifier")
@@ -272,15 +281,17 @@ class GameScreen: UIViewController {
             goodEndCounter += 1
             saveGame(buttonID: 1)
             altStoryArrayA.remove(at: 0)
+            altStoryArrayB.remove(at: 0)
         case 2:
             gameStoryText.text = altStoryArrayB[altNo]
             badEndCounter += 1
             saveGame(buttonID: 2)
+            altStoryArrayA.remove(at: 0)
             altStoryArrayB.remove(at: 0)
         default: break
         }
         delay(2) {
-            self.option2Text.sendActions(for: .touchUpInside)
+            self.systemAdvanceText.sendActions(for: .touchUpInside)
         }
     }
 
@@ -348,7 +359,7 @@ class GameScreen: UIViewController {
             default: break
         }
         delay(4) {
-            self.option2Text.sendActions(for: .touchUpInside)
+            self.systemAdvanceText.sendActions(for: .touchUpInside)
         }
     }
     
@@ -402,7 +413,7 @@ class GameScreen: UIViewController {
             if self.timerCount == self.storyEndingArray.count - 1 {
                 t.invalidate()
                 self.performSegue(withIdentifier: "toCredits", sender: self)
-            } else {
+            } else if self.timerCount < self.storyEndingArray.count - 1 {
                 self.gameStoryText.text = self.storyEndingArray[self.endingArrayNo]
                 self.endingArrayNo += 1
             }
