@@ -20,9 +20,9 @@ class GameScreen: UIViewController {
     var altStoryArrayB = [""]
     var storyEndingArray = [""]
     var textFileContent = ""
-    var timeGateEventArrayA = [4, 8, 9] //can be any array
-    var timeGateEventArrayB = [3, 6, 12] //can be any array
-    var altStoryEventArray = [2, 14, 21] //set array as per main story
+    var timeGateEventArrayA = [65, 78, 90] //can be any array
+    var timeGateEventArrayB = [101, 344, 566] //can be any array
+    var altStoryEventArray = [98, 99, 100] //set array as per main story
     var storyArrayNo = 0
     var buttonNo = 0
     var timerCount = 0
@@ -38,7 +38,7 @@ class GameScreen: UIViewController {
     
     //player settings
     var playerName = "Unknown"
-    var playerWeapon = "???"
+    var playerWeapon = "sword"
     var goodEndCounter = 0
     var badEndCounter = 0
     var playerKarma = "neutral"
@@ -125,9 +125,9 @@ class GameScreen: UIViewController {
     
     //initialises game
     func initGame() {
-        gameStoryText.text = "First line of story."
-        option1Text.setTitle("First option", for: [])
-        option2Text.setTitle("Second option", for: [])
+        gameStoryText.text = "You wake up in a steel room."
+        option1Text.setTitle("......", for: [])
+        option2Text.setTitle(".....?", for: [])
         breakoutOptionText.isHidden = true
     }
     

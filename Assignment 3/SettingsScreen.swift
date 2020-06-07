@@ -85,7 +85,7 @@ class SettingsScreen: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.weaponPickerScroll.delegate = self
         self.weaponPickerScroll.dataSource = self
         
-        weaponPickerData = ["Sword", "Shield"]
+        weaponPickerData = ["sword", "shield"]
         
         loadSettings()
     }

@@ -1,5 +1,8 @@
-It's dangerous to go alone, take this
-Wahaha
-Uchuuuu playerName
-the next part will be time gated he said
-jk timer always go brrrr
+Besides the bed you woke up from, the room is featureless save for a screen and a table.
+On the table is a playerWeapon.
+Before getting a chance to get your bearings, the screen flickers on.
+Hello, playerName.
+You are here today because you have volunteered for a social experiment, the details of which you consented to prior to mindwipe.
+For the purposes of an unbiased study,  we here at the Facility will not return your memories until the end of the experiment.
+We appreciate your understanding.”
+“Please pick up your playerWeapon and proceed.”
