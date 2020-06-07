@@ -1,5 +1,15 @@
-everyone lives happily ever after
-yaaay
-celebration time~~
-i just want good gacha is that too much to ask
-are you thinking what i'm thinking b1?
+--incoming connection--
+"Accept connection."
+"Central command to Branch 6. Do you copy?"
+"Yes. The experiments have concluded successfully."
+"Status report."
+"Subject showed signs of distress at 1 month and 23 days.
+Subject successfully breached security at 2 months and 5 days.
+Contact with the 'outside' was established at 3 months and 2 days.
+Subject successfully escaped from the testing facility at 3 months and 25 days.
+There has been a 12.5% decrease in time required from initial signs of distress to escape.
+Subject was returned to the facility without issue."
+"Well done. I hope you will continue to produce good results for us.
+The future of humanity rests on the results of this research after all."
+"Yes ma'am."
+--connection lost--

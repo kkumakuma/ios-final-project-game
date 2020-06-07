@@ -1,5 +1,19 @@
-oop bad ending
-everyone dies and stuff
-this is just me lowkey dying
-dont mind me :3
-hey its me b3
+--incoming connection--
+"Accept connection."
+"Central command to Branch 6. Do you copy?"
+"Yes. The experiments have concluded unsuccessfully."
+"Status report."
+"Subject showed signs of distress at 1 month and 23 days.
+Subject successfully breached security at 2 months and 5 days.
+Contact with the 'outside' was established at 3 months and 2 days.
+Subject successfully escaped from the testing facility at 3 months and 25 days.
+There has been a 24.5% decrease in time required from initial signs of distress to escape.
+Subject's mental stability decreased exponentially after contact was established.
+Subject has been deemed too unstable  and has been terminated."
+"That is a pity. I suppose this one will be coming out of your paycheck.
+Try not to destroy any more of them, alright?
+They're pretty difficult to come by."
+"Understood."
+"Good. As you were."
+"Yes ma'am."
+--connection lost--

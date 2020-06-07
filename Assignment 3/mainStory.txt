@@ -1,8 +1,53 @@
-Besides the bed you woke up from, the room is featureless save for a screen and a table.
-On the table is a playerWeapon.
-Before getting a chance to get your bearings, the screen flickers on.
-Hello, playerName.
-You are here today because you have volunteered for a social experiment, the details of which you consented to prior to mindwipe.
-For the purposes of an unbiased study,  we here at the Facility will not return your memories until the end of the experiment.
-We appreciate your understanding.”
-“Please pick up your playerWeapon and proceed.”
+Hey. Hey can you hear me?
+Oh, yes! I finally managed to contact someone on the Outside!
+Sorry there's no visuals, it took me months to just get the audio up and running.
+Ok so I want you to hear me o-
+My name?
+Uhh... Let's see here... There's something displayed on this terminal here....
+P-l1l17H....?
+That's pretty hard to say, huh. Hmm... I know! You can call me Lilith!
+While we're on that, what's your name?
+Well, hello playerName!
+Mhmm! Anyway, back to the topic at hand.
+So I've been stuck in here for a while.
+Well, the panel says.... Automaton Research Facility?
+Do you know somewhere like that?
+I suppose it doesn't matter.
+Anyway, I've been trying to get out of here for months.
+For starters, there doesn't seem to be anyone here other than me.
+I guess you could say its abandoned, but the electricity and everything's still on...
+Seems like an awful waste, but I can't really complain, can I?
+You came at a good time. I thought I was going to lose it all by myself in here...
+Well. I'm going to have to find something to eat.
+Are you sure?
+Alright, let's get going then.
+[Something clangs in the distance.]
+Wait, did you hear that?
+It sounds like... footsteps?
+Th-that's actually a little creepy. Maybe I should find something to defend myself just in case?
+Y-yeah but you never know, right?
+Alright, so I managed to find this playerWeapon. It's a bit rusty, but it should do for now, right?
+I'm gonna go check it out, so stay with me, okay?
+It's been a while since I've had someone with me in these halls.
+[Something drops to the ground.]
+Th-they're after me!
+These weird machine-things!
+H-hey, can you check the map?
+Yeah, which way should I go? *** B DEAD END??
+Alright, I'll go that way then.
+[A door shuts.]
+Aah, I thought I was going to die for a minute there. Thanks for that.
+I'm a little tired after that...
+Hm, what was that?
+[STORY NOT INCLUDED FOR DEMO PURPOSES BUT ACTUALLY IM JUST LAZY]
+Hmm. I'll try getting into them, but I'm not sure I'll get anything useful. Let's see...
+[STORY NOT INCLUDED FOR DEMO PURPOSES BUT ACTUALLY IM JUST LAZY]
+I can feel a breeze coming from this gap here.
+This door must lead to the outside! I'm sure of it!
+Well, time to test out those security codes, huh.
+They have to work, right?
+Well, here goes nothing....
+[An alarm begins to ring.]
+Hey, hey wait, what's going on?
+Wait-
+--connection lost--

@@ -20,19 +20,22 @@ class GameScreen: UIViewController {
     var altStoryArrayB = [""]
     var storyEndingArray = [""]
     var textFileContent = ""
-    var timeGateEventArrayA = [65, 78, 90] //can be any array
-    var timeGateEventArrayB = [101, 344, 566] //can be any array
-    var altStoryEventArray = [98, 99, 100] //set array as per main story
+    var timeGateEventArrayA = [21, 27] //can be any array
+    var timeGateEventArrayB = [40] //can be any array
+    var altStoryEventArray = [4, 19, 20, 25, 28, 35, 39, 42] //set array as per main story
+    var deadEndArray = [35]
     var storyArrayNo = 0
     var buttonNo = 0
     var timerCount = 0
     var endingArrayNo = 1
+    var altCount = 9
+    var altNo = 0
     
     //time events
-    var breakoutMessageA = "I'm looking for something, Brb."
-    var breakoutMessageB = "Gonna take a nap."
-    var actionInProgressA = "Unknown is busy."
-    var actionInProgressB = "Unknown is asleep."
+    var breakoutMessageA = "I'll see what I can find. Hold on."
+    var breakoutMessageB = "I'm so tired. I'm going to take a nap."
+    var actionInProgressA = "Lilith is busy."
+    var actionInProgressB = "Lilith is asleep."
     var breakoutPt2MessageA = "Can't you be a little more patient?"
     var breakoutPt2MessageB = "Is it time to get up already?"
     
@@ -72,6 +75,10 @@ class GameScreen: UIViewController {
             } else if timeGateEventArrayA.contains(storyArrayNo) {
                 saveGame(buttonID: 1)
                 timeBreakout(buttonID: 1)
+                goodEndCounter += 1
+            } else if timeGateEventArrayB.contains(storyArrayNo) {
+                saveGame(buttonID: 1)
+                timeBreakout(buttonID: 1)
             } else if altStoryEventArray.contains(storyArrayNo) {
                 saveGame(buttonID: 1)
                 alternateStoryline(buttonID: 1)
@@ -90,9 +97,20 @@ class GameScreen: UIViewController {
             } else if timeGateEventArrayB.contains(storyArrayNo) {
                 saveGame(buttonID: 2)
                 timeBreakout(buttonID: 2)
+                goodEndCounter += 1
+            } else if timeGateEventArrayA.contains(storyArrayNo) {
+                saveGame(buttonID: 1)
+                timeBreakout(buttonID: 1)
             } else if altStoryEventArray.contains(storyArrayNo) {
                 saveGame(buttonID: 2)
                 alternateStoryline(buttonID: 2)
+            } else if deadEndArray.contains(storyArrayNo) {
+                playerKarma = "bad"
+                storyEndingArray = loadTextToArray(fileName: "badEnding")!
+                delay(2) {
+                    self.gameStoryText.text = self.storyEndingArray[0]
+                    self.endingSequence()
+                }
             }
         } else if storyArrayNo == mainStoryArray.count - 1 {
             advanceStory()
@@ -125,9 +143,9 @@ class GameScreen: UIViewController {
     
     //initialises game
     func initGame() {
-        gameStoryText.text = "You wake up in a steel room."
-        option1Text.setTitle("......", for: [])
-        option2Text.setTitle(".....?", for: [])
+        gameStoryText.text = "--incoming connection--"
+        option1Text.setTitle("Hello?", for: [])
+        option2Text.setTitle("....?", for: [])
         breakoutOptionText.isHidden = true
     }
     
@@ -144,8 +162,6 @@ class GameScreen: UIViewController {
             playerWeapon = defaults.value(forKey: "playerWeapon") as! String
         }
         storySavePoint = defaults.integer(forKey: "savedStoryLineNo")
-        actionInProgressA = "\(playerName) is busy."
-        actionInProgressB = "\(playerName) is asleep."
     }
     
     //saves game
@@ -247,13 +263,15 @@ class GameScreen: UIViewController {
         altStoryEventArray.remove(at: 0)
         switch buttonID {
         case 1:
-            gameStoryText.text = altStoryArrayA[0]
+            gameStoryText.text = altStoryArrayA[altNo]
             goodEndCounter += 1
             saveGame(buttonID: 1)
+            altStoryArrayA.remove(at: 0)
         case 2:
-            gameStoryText.text = altStoryArrayB[0]
+            gameStoryText.text = altStoryArrayB[altNo]
             badEndCounter += 1
             saveGame(buttonID: 2)
+            altStoryArrayB.remove(at: 0)
         default: break
         }
         delay(2) {
@@ -331,10 +349,12 @@ class GameScreen: UIViewController {
     
     //loads and displays ending sequence based on player choices
     func displayEnding() {
+        option1Text.isHidden = true
+        option2Text.isHidden = true
         if storyArrayNo == mainStoryArray.count {
-            if goodEndCounter / mainStoryArray.count > Int(0.70) {
+            if goodEndCounter / altCount > Int(0.70) {
                 playerKarma = "good"
-            } else if badEndCounter / mainStoryArray.count > Int(0.70) {
+            } else if badEndCounter / altCount > Int(0.70) {
                 playerKarma = "bad"
             } else {
                 playerKarma = "neutral"
