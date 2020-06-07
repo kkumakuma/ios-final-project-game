@@ -13,6 +13,6 @@ Subject's mental stability decreased, but it was within our predictions.
 Subject was returned to the facility with minimal damage.
 It would appear a limb or two may need to be replaced."
 "That is somewhat unfortunate, but it will do.
-Try to keep subject damage at a minimum, will you?"
+Try to keep subject damage at a minimum, would you?"
 "Yes ma'am."
 --connection lost--

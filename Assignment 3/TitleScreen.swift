@@ -52,9 +52,9 @@ class TitleScreen: UIViewController {
         
         if defaults.string(forKey: "playerName") != nil {
             playerName = defaults.string(forKey: "playerName") ?? "Unknown"
-            welcomeMessageLabel.text = "Welcome back, Test Subject \(playerName)."
+            welcomeMessageLabel.text = "Welcome back, \(playerName)."
         } else {
-            welcomeMessageLabel.text = "Hello, unknown Test Subject."
+            welcomeMessageLabel.text = " Terminal \(playerName)66-75"
         }
     }
 }

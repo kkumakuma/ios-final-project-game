@@ -77,7 +77,7 @@ class GameScreen: UIViewController {
     //button actions for 1st player choice
     @IBAction func option1Button(_ sender: UIButton) {
         if storyArrayNo < mainStoryArray.count - 1 {
-            if !timeGateEventArrayA.contains(storyArrayNo) && !altStoryEventArray.contains(storyArrayNo) {
+            if !timeGateEventArrayA.contains(storyArrayNo) && !timeGateEventArrayB.contains(storyArrayNo) && !altStoryEventArray.contains(storyArrayNo) {
                 advanceStory()
             } else if timeGateEventArrayA.contains(storyArrayNo) {
                 saveGame(buttonID: 1)
@@ -103,21 +103,21 @@ class GameScreen: UIViewController {
             option2Text.isHidden = true
             playerKarma = "bad"
             storyEndingArray = loadTextToArray(fileName: "badEnding")!
-            delay(2) { //change for actual game
+            delay(2) {
                 self.gameStoryText.text = self.storyEndingArray[0]
                 self.endingSequence()
             }
         }
         if storyArrayNo < mainStoryArray.count - 1{
-            if !timeGateEventArrayB.contains(storyArrayNo) && !altStoryEventArray.contains(storyArrayNo) {
+            if !timeGateEventArrayA.contains(storyArrayNo) && !timeGateEventArrayB.contains(storyArrayNo) && !altStoryEventArray.contains(storyArrayNo) {
                 advanceStory()
+            } else if timeGateEventArrayA.contains(storyArrayNo) {
+                saveGame(buttonID: 1)
+                timeBreakout(buttonID: 1)
             } else if timeGateEventArrayB.contains(storyArrayNo) {
                 saveGame(buttonID: 2)
                 timeBreakout(buttonID: 2)
                 goodEndCounter += 1
-            } else if timeGateEventArrayA.contains(storyArrayNo) {
-                saveGame(buttonID: 1)
-                timeBreakout(buttonID: 1)
             } else if altStoryEventArray.contains(storyArrayNo) {
                 saveGame(buttonID: 2)
                 alternateStoryline(buttonID: 2)
@@ -290,7 +290,7 @@ class GameScreen: UIViewController {
             altStoryArrayB.remove(at: 0)
         default: break
         }
-        delay(2) {
+        delay(2.5) {
             self.systemAdvanceText.sendActions(for: .touchUpInside)
         }
     }
@@ -320,11 +320,11 @@ class GameScreen: UIViewController {
         //DELAY FOR TIME GATE
         switch buttonID {
             case 1:
-                delay(5) {
+                delay(5) { //change for actual game
                     self.breakoutOptionText.isHidden = false
                 }
             case 2:
-                delay(10) {
+                delay(10) { //change for actual game
                     self.breakoutOptionText.isHidden = false
                 }
             default: break
@@ -408,7 +408,7 @@ class GameScreen: UIViewController {
     
     //ending lines display loop
     func endingSequence() {
-        _ = Timer.scheduledTimer(withTimeInterval: 5.5, repeats: true){
+        _ = Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { //change for actual game
             t in self.timerCount += 1
             if self.timerCount == self.storyEndingArray.count - 1 {
                 t.invalidate()

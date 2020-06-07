@@ -38,7 +38,7 @@ Go left!
 You made it!
 That was close.
 You should rest.
-Fine, just a quick rest.
+Sleep well.
 [CONTINUE]
 That must be it then!
 What are we waiting for?
