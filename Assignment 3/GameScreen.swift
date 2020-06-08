@@ -33,7 +33,7 @@ class GameScreen: UIViewController {
     
     //time events
     var breakoutMessageA = "I'll see what I can find. Hold on."
-    var breakoutMessageB = "I'm so tired. I'm going to take a nap."
+    var breakoutMessageB = "I'm going to take a nap."
     var actionInProgressA = "Lilith is busy."
     var actionInProgressB = "Lilith is asleep."
     var breakoutPt2MessageA = "Can't you be a little more patient?"
@@ -76,7 +76,7 @@ class GameScreen: UIViewController {
     }
     //button actions for 1st player choice
     @IBAction func option1Button(_ sender: UIButton) {
-        if storyArrayNo < mainStoryArray.count - 1 {
+        if storyArrayNo < mainStoryArray.count - 5 {
             if !timeGateEventArrayA.contains(storyArrayNo) && !timeGateEventArrayB.contains(storyArrayNo) && !altStoryEventArray.contains(storyArrayNo) {
                 advanceStory()
             } else if timeGateEventArrayA.contains(storyArrayNo) {
@@ -90,9 +90,8 @@ class GameScreen: UIViewController {
                 saveGame(buttonID: 1)
                 alternateStoryline(buttonID: 1)
             }
-        } else if storyArrayNo == mainStoryArray.count - 1 {
-            advanceStory()
-            displayEnding()
+        } else if storyArrayNo == mainStoryArray.count - 5 {
+            option1Text.isHidden = true
         }
     }
     
@@ -167,7 +166,7 @@ class GameScreen: UIViewController {
             playerName = defaults.value(forKey: "playerName") as! String
         }
         if defaults.string(forKey: "playerWeapon") == nil {
-            defaults.set("Sword", forKey: "playerWeapon")
+            defaults.set("sword", forKey: "playerWeapon")
         } else {
             playerWeapon = defaults.value(forKey: "playerWeapon") as! String
         }
@@ -279,15 +278,15 @@ class GameScreen: UIViewController {
         case 1:
             gameStoryText.text = altStoryArrayA[altNo]
             goodEndCounter += 1
-            saveGame(buttonID: 1)
             altStoryArrayA.remove(at: 0)
             altStoryArrayB.remove(at: 0)
+            saveGame(buttonID: 1)
         case 2:
             gameStoryText.text = altStoryArrayB[altNo]
             badEndCounter += 1
-            saveGame(buttonID: 2)
             altStoryArrayA.remove(at: 0)
             altStoryArrayB.remove(at: 0)
+            saveGame(buttonID: 2)
         default: break
         }
         delay(2.5) {

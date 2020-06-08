@@ -32,6 +32,10 @@ class TitleScreen: UIViewController {
             self.defaults.removeObject(forKey: "playerName")
             self.defaults.removeObject(forKey: "playerWeapon")
             self.defaults.set(false, forKey: "bgmMuteStatus")
+            self.defaults.removeObject(forKey: "altStoryArrayA")
+            self.defaults.removeObject(forKey: "altStoryArrayB")
+            self.defaults.set(0, forKey: "goodEndCounter")
+            self.defaults.set(0, forKey: "badEndCounter")
             if self.defaults.bool(forKey: "bgmMuteStatus") == false {
                 MusicPlayer.shared.unmuteBGM()
             }
