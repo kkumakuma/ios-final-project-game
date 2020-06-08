@@ -2,7 +2,7 @@
 --incoming connection--
 "Accept connection."
 "Central command to Branch 6. Do you copy?"
-"Yes. The experiments have concluded successfully."
+"Yes. Project Rabbit Hole has concluded successfully."
 "Status report."
 "Subject showed signs of distress at 1 month and 23 days.
 Subject successfully breached security at 2 months and 5 days.
@@ -15,4 +15,4 @@ It would appear a limb or two may need to be replaced."
 "That is somewhat unfortunate, but it will do.
 Try to keep subject damage at a minimum, would you?"
 "Yes ma'am."
---connection lost--
+--connection terminated--

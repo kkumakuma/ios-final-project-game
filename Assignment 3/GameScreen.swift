@@ -76,7 +76,7 @@ class GameScreen: UIViewController {
     }
     //button actions for 1st player choice
     @IBAction func option1Button(_ sender: UIButton) {
-        if storyArrayNo < mainStoryArray.count - 5 {
+        if storyArrayNo < mainStoryArray.count - 6 {
             if !timeGateEventArrayA.contains(storyArrayNo) && !timeGateEventArrayB.contains(storyArrayNo) && !altStoryEventArray.contains(storyArrayNo) {
                 advanceStory()
             } else if timeGateEventArrayA.contains(storyArrayNo) {
@@ -90,7 +90,7 @@ class GameScreen: UIViewController {
                 saveGame(buttonID: 1)
                 alternateStoryline(buttonID: 1)
             }
-        } else if storyArrayNo == mainStoryArray.count - 5 {
+        } else if storyArrayNo == mainStoryArray.count - 6 {
             option1Text.isHidden = true
         }
     }

@@ -1,51 +1,53 @@
-Hey. Hey can you hear me?
-Oh, great! I finally managed to contact someone on the Outside!
-Sorry there's no visuals, it took me months to just get the audio up and running.
-Ok so I want you to help me o-
-My name, was it?
-Uhh... Let's see here. There's something displayed on this terminal here.
-P-L1L17H....?
-That's pretty hard to say, huh. Hmm... I know! You can call me Lilith!
-While we're on that, what's your name?
-Well, hello playerName!
-Mhmm! Anyway, back to the topic at hand.
-So I've been stuck in here for a while.
-Well, the panel says.... Automaton Research Facility?
-Do you know somewhere like that?
-I suppose it doesn't matter.
-I've been trying to get out of here for months.
-For starters, there doesn't seem to be anyone here other than me.
-I guess you could say its abandoned, but the electricity and everything's still on...
-Seems like an awful waste, but I can't really complain, can I?
-You came at a good time. I thought I was going to lose it all by myself in here...
+Log A2-4: Connection success.
+I managed to contact someone on the Outside.
+This might be the one chance I need to get out of here.
+Listen, I need you to h-
+Wh- My name?
+Let's see. There's something displayed on this terminal here.
+Never had a need for names in here, and I don't remember anything from before... SUBJ-L1-L17H....?
+A bunch of letters and numbers... I suppose Lilith will have to do.
+Since you seem insistent on self-introductions, you might as well tell me yours.
+playerName... I'll try to remember that.
+Back to the topic at hand.
+I've been stuck in here for a while.
+Somewhere called.... the Automaton Research Facility?
+You wouldn't happen to know a place like that?
+Then again, it doesn't matter. I'm still trapped.
+I've been trying to get out for months. Or at least that's what the clocks in here say.
+The building seems fully functional, but I have yet to come across any other forms of life.
+The power generators are still running...
+Seems like a waste of energy to me, but I can't really complain.
+I assume it's been abandoned.
 [STORY CUT FOR DEMO PURPOSES]
-Well. I'm going to have to find something to eat.
+I'm going to have to find something to eat.
 ...
-Alright, let's get going then.
+Alright, time to go.
 [Something clangs in the distance.]
-It sounds like... footsteps? Coming here?
-Th-that's actually a little creepy.
-Maybe I should find something to defend myself just in case?
-Something for protection can't hurt, right?
-Alright, so I managed to find this playerWeapon. It's a bit rusty, but it should do for now.
-[Metal screeches as the door is yanked open.]
+It sounds like... footsteps? Coming here.
+That can't be right. I've been around this building about a hundred times. There's no-one in here.
+Can you check the map schematics for me?
+I'm going to find something to defend myself.
+I managed to find this playerWeapon. It's a bit rusty, but it should do for now.
+[The door scrapes against the ground.]
 Wh-
-[Something drops to the ground.]
-Th-they're after me!
-These weird machine-things!
-H-hey, can you check the map?
-Yeah that one. Which way should I go?
+[Something drops to the floor.]
+This is going to sound far-fetched, but there's a swarm of things coming after me.
+It's some sort of nanobot cloud...?
+Can you check the map?
+Which way should I go?
 [A door shuts.]
 Aah, I thought I was going to die for a minute there. Thanks for that.
-I'm a little tired after that...
+I'm a little tired...
 zzz... Huh...?
 [STORY CUT FOR DEMO PURPOSES]
-I can feel a breeze coming from this gap here.
-I'm sure of it!
-Well, time to test out those security codes, huh.
-They have to work, right?
+This must be the door.
+It wouldn't have so much security otherwise.
+Well, time to test out those codes we got.
+You remember the one for the door?
 Well, here goes nothing....
 [An alarm begins to ring.]
+"Foreign entity detected in the central server rooms."
+"For purposes of data integrity, all data will be destroyed immediately."
 Hey, hey wait, what's going on?
 Wait-
 --connection lost--

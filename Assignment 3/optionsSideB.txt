@@ -25,13 +25,13 @@ Let's go.
 What was that?
 Footsteps?
 Something's coming.
-Run.
+....
 Be quick.
-You probably won't last.
+....
 !!
 On your right!
-Hurry!
-Who's they!?
+Get out of there!
+What things?
 Maybe you can hide somewhere?
 Alright, I'm on it.
 Go right!
@@ -40,11 +40,12 @@ You're all there, right?
 Get moving. They'll be back.
 Fine, just a quick rest.
 [CONTINUE]
-A breeze from the outside?
-Let's go!
-This is it.
-Moment of truth.
+....
+....
+....
+WH173R48817
 (raise the alarm.)
+....
 ....
 ....
 ....

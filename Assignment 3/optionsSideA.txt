@@ -20,32 +20,34 @@ I suppose you can't.
 Hang in there.
 [CONTINUE]
 Go grab some food.
-Fine, but make it quick.
+Fine, make it quick.
 Yeah.
 ...!
 Get out of there.
 I thought you were alone.
-Good idea.
+Yeah.
 I suppose.
 Yeah, now get going!
 !?
 Move!
-Get out of there!
+What was that?
 Whats after you?
-Weren't you alone!?
-What map?
+Maybe it's a security feature?
+Give me a second.
 Go left!
 You made it!
 That was close.
 You should rest.
 Sleep well.
 [CONTINUE]
-That must be it then!
-What are we waiting for?
-Good luck!
-Of course!
-(raise the alarm.)
-....
-....
-....
-....
+We made it.
+That's a good point.
+Moment of truth.
+
+
+
+
+
+
+
+

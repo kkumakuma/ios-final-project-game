@@ -1,8 +1,8 @@
-[There is the screeching of tearing metal...]
+[Shrieks of metal tearing come through the speakers.]
 --incoming connection--
 "Accept connection."
 "Central command to Branch 6. Do you copy?"
-"Yes. The experiments have concluded unsuccessfully."
+"Yes. Project Rabbit Hole has concluded unsuccessfully."
 "Status report."
 "Subject showed signs of distress at 1 month and 23 days.
 Subject successfully breached security at 2 months and 5 days.
@@ -17,4 +17,4 @@ They're pretty difficult to come by."
 "Understood."
 "Good. As you were."
 "Yes ma'am."
---connection lost--
+--connection terminated--
